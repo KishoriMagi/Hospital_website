@@ -1,0 +1,22 @@
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Python bytecode & caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local database instances & secrets
+instance/
+.env
+.env.backup
+_old_backup/
+
+# Mock folders & IDE settings
+mock_dropbox/
+.vscode/
+.idea/

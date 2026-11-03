@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1150" width="100%" height="100%" style="background-color: #0b1120; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="hospBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070d19" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#070d19" />
+    </linearGradient>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <linearGradient id="tierGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Markers -->
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#4ade80" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1150" fill="url(#hospBgGrad)" />
+
+  <!-- Grid lines -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <pattern id="hospGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1400" height="1150" fill="url(#hospGrid)" />
+  </g>
+
+  <!-- Title Header -->
+  <g transform="translate(700, 45)" text-anchor="middle">
+    <rect x="-480" y="-25" width="960" height="58" rx="29" fill="#1e293b" stroke="#0284c7" stroke-width="2" />
+    <text y="7" fill="#f8fafc" font-size="20" font-weight="800" letter-spacing="1">
+      HOSPITAL PATIENT &amp; TEST MANAGEMENT PORTAL - SYSTEM ARCHITECTURE
+    </text>
+    <text y="46" fill="#94a3b8" font-size="13">
+      Tiered Microservices Architecture, Local Database Isolation, and Outbound REST Client Integration
+    </text>
+  </g>
+
+  <!-- MAIN CONTAINER -->
+  <g transform="translate(60, 95)">
+
+    <!-- TIER 1: USER & CLIENT ACCESS TIER -->
+    <g transform="translate(0, 0)">
+      <rect width="1280" height="120" rx="12" fill="url(#tierGrad)" stroke="#334155" stroke-width="1.5" filter="url(#dropShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#0369a1" />
+      <rect x="0" y="16" width="1280" height="16" fill="#0369a1" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 1: ACTORS &amp; ACCESS INTERFACES</text>
+
+      <!-- Clinicians / Doctors -->
+      <g transform="translate(30, 45)">
+        <rect width="370" height="60" rx="8" fill="#0b1120" stroke="#0284c7" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#0369a1" />
+        <text x="35" y="36" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Dr</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Attending Physicians &amp; Medical Officers</text>
+        <text x="65" y="46" fill="#94a3b8" font-size="11">Prescribe Diagnostic Panels &amp; Analyze Results</text>
+      </g>
+
+      <!-- Nursing & Desk Staff -->
+      <g transform="translate(450, 45)">
+        <rect width="370" height="60" rx="8" fill="#0b1120" stroke="#334155" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#334155" />
+        <text x="35" y="36" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">St</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Inpatient &amp; Outpatient Nursing Staff</text>
+        <text x="65" y="46" fill="#94a3b8" font-size="11">Patient Intake, Vitals, and Manual Sync Checks</text>
+      </g>
+
+      <!-- System Admin -->
+      <g transform="translate(870, 45)">
+        <rect width="380" height="60" rx="8" fill="#0b1120" stroke="#334155" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#1e293b" />
+        <text x="35" y="36" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">&#9881;</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Hospital System Administrator</text>
+        <text x="65" y="46" fill="#94a3b8" font-size="11">Staff Roles, API Keys, and Audit Log Verification</text>
+      </g>
+    </g>
+
+    <!-- Downward Flow -->
+    <path d="M 640 120 L 640 148" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowCyan)" />
+
+    <!-- TIER 2: PRESENTATION LAYER (FRONTEND WEB CLIENT) -->
+    <g transform="translate(0, 150)">
+      <rect width="1280" height="150" rx="12" fill="url(#tierGrad)" stroke="#334155" stroke-width="1.5" filter="url(#dropShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#0284c7" />
+      <rect x="0" y="16" width="1280" height="16" fill="#0284c7" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 2: PRESENTATION LAYER (BROWSER WORKSTATION)</text>
+
+      <!-- UI Cards -->
+      <g transform="translate(30, 45)">
+        <rect width="280" height="85" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="26" fill="#38bdf8" font-size="12" font-weight="700">Responsive UI Templates</text>
+        <text x="20" y="46" fill="#cbd5e1" font-size="10.5">&#8226; Bootstrap 5 Responsive Grid</text>
+        <text x="20" y="62" fill="#cbd5e1" font-size="10.5">&#8226; FontAwesome 6 Medical Icons</text>
+        <text x="20" y="78" fill="#cbd5e1" font-size="10.5">&#8226; Custom CSS Dark/Light Themes</text>
+      </g>
+
+      <g transform="translate(340, 45)">
+        <rect width="280" height="85" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="26" fill="#38bdf8" font-size="12" font-weight="700">Dynamic Jinja2 Views</text>
+        <text x="20" y="46" fill="#cbd5e1" font-size="10.5">&#8226; Patient Profiles &amp; History</text>
+        <text x="20" y="62" fill="#cbd5e1" font-size="10.5">&#8226; Requisition Order Modals</text>
+        <text x="20" y="78" fill="#cbd5e1" font-size="10.5">&#8226; Diagnostic Result Cards</text>
+      </g>
+
+      <g transform="translate(650, 45)">
+        <rect width="280" height="85" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="26" fill="#38bdf8" font-size="12" font-weight="700">Interactive Client Triggers</text>
+        <text x="20" y="46" fill="#cbd5e1" font-size="10.5">&#8226; Form Validation &amp; Sanitization</text>
+        <text x="20" y="62" fill="#cbd5e1" font-size="10.5">&#8226; One-Click Result Sync Button</text>
+        <text x="20" y="78" fill="#cbd5e1" font-size="10.5">&#8226; Flash Notifications (Success/Err)</text>
+      </g>
+
+      <g transform="translate(960, 45)">
+        <rect width="290" height="85" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="26" fill="#38bdf8" font-size="12" font-weight="700">Clinical Data Visualization</text>
+        <text x="20" y="46" fill="#cbd5e1" font-size="10.5">&#8226; Color-coded Abnormal Badges</text>
+        <text x="20" y="62" fill="#cbd5e1" font-size="10.5">&#8226; Printable Medical Reports</text>
+        <text x="20" y="78" fill="#cbd5e1" font-size="10.5">&#8226; Real-Time Order Status Tracker</text>
+      </g>
+    </g>
+
+    <!-- Downward Flow -->
+    <path d="M 640 300 L 640 328" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowCyan)" />
+
+    <!-- TIER 3: APPLICATION & CONTROLLER TIER (FLASK BACKEND) -->
+    <g transform="translate(0, 330)">
+      <rect width="1280" height="175" rx="12" fill="url(#tierGrad)" stroke="#0284c7" stroke-width="1.5" filter="url(#dropShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#0369a1" />
+      <rect x="0" y="16" width="1280" height="16" fill="#0369a1" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 3: APPLICATION CONTROLLERS (FLASK BLUEPRINTS - PORT 5001)</text>
+
+      <!-- Blueprint 1: Auth -->
+      <g transform="translate(30, 45)">
+        <rect width="280" height="110" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">routes/auth.py</text>
+        <text x="20" y="46" fill="#94a3b8" font-size="10.5">&#8226; Session Authentication</text>
+        <text x="20" y="64" fill="#94a3b8" font-size="10.5">&#8226; PBKDF2 Password Hashing</text>
+        <text x="20" y="82" fill="#94a3b8" font-size="10.5">&#8226; Role-Based Access Control</text>
+        <text x="20" y="100" fill="#94a3b8" font-size="10.5">&#8226; @login_required Guards</text>
+      </g>
+
+      <!-- Blueprint 2: Patients -->
+      <g transform="translate(340, 45)">
+        <rect width="280" height="110" rx="8" fill="#0b1120" stroke="#334155" />
+        <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">routes/patients.py</text>
+        <text x="20" y="46" fill="#94a3b8" font-size="10.5">&#8226; Register New Patient</text>
+        <text x="20" y="64" fill="#94a3b8" font-size="10.5">&#8226; Demographic Record Update</text>
+        <text x="20" y="82" fill="#94a3b8" font-size="10.5">&#8226; Longitudinal Medical History</text>
+        <text x="20" y="100" fill="#94a3b8" font-size="10.5">&#8226; Patient ID Generator</text>
+      </g>
+
+      <!-- Blueprint 3: Test Requests -->
+      <g transform="translate(650, 45)">
+        <rect width="280" height="110" rx="8" fill="#0b1120" stroke="#0284c7" />
+        <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">routes/test_requests.py</text>
+        <text x="20" y="46" fill="#94a3b8" font-size="10.5">&#8226; Order Diagnostic Panel</text>
+        <text x="20" y="64" fill="#94a3b8" font-size="10.5">&#8226; Priority Routing (Stat/Urgent)</text>
+        <text x="20" y="82" fill="#38bdf8" font-size="10.5">&#8226; Triggers lab_api_service</text>
+        <text x="20" y="100" fill="#4ade80" font-size="10.5">&#8226; Real-Time HTTP Confirmation</text>
+      </g>
+
+      <!-- Blueprint 4: Results -->
+      <g transform="translate(960, 45)">
+        <rect width="290" height="110" rx="8" fill="#0b1120" stroke="#0284c7" />
+        <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">routes/results.py</text>
+        <text x="20" y="46" fill="#94a3b8" font-size="10.5">&#8226; Display Final Laboratory Data</text>
+        <text x="20" y="64" fill="#94a3b8" font-size="10.5">&#8226; Triggers result_sync_service</text>
+        <text x="20" y="82" fill="#94a3b8" font-size="10.5">&#8226; Parameter Flagging (H/L)</text>
+        <text x="20" y="100" fill="#4ade80" font-size="10.5">&#8226; Ingests Findings to hospital.db</text>
+      </g>
+    </g>
+
+    <!-- Branching Flows Downward -->
+    <path d="M 320 505 L 320 540" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowCyan)" />
+    <path d="M 960 505 L 960 540" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowCyan)" />
+
+    <!-- TIER 4: SERVICE INTEGRATION & LOCAL DATABASE (PARALLEL SPLIT) -->
+    <g transform="translate(0, 545)">
+      <!-- Left Box: Local Database Isolation -->
+      <g transform="translate(0, 0)">
+        <rect width="620" height="260" rx="12" fill="url(#tierGrad)" stroke="#334155" stroke-width="1.5" filter="url(#dropShadow)" />
+        <rect x="0" y="0" width="620" height="32" rx="12" fill="#1e293b" stroke="#334155" />
+        <text x="20" y="22" fill="#38bdf8" font-size="12" font-weight="800" letter-spacing="0.5">TIER 4A: LOCAL PERSISTENCE LAYER (ISOLATED HOSPITAL RDBMS)</text>
+
+        <!-- Database Engine -->
+        <g transform="translate(25, 45)">
+          <rect width="260" height="195" rx="8" fill="#0b1120" stroke="#0284c7" />
+          <text x="130" y="28" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="800">SQLite (hospital.db)</text>
+          <line x1="15" y1="38" x2="245" y2="38" stroke="#1e293b" stroke-width="2" />
+          <text x="20" y="60" fill="#f8fafc" font-size="11" font-weight="600">&#128273; users</text>
+          <text x="35" y="76" fill="#94a3b8" font-size="10">id, username, password_hash, role</text>
+          <text x="20" y="100" fill="#f8fafc" font-size="11" font-weight="600">&#128203; patients</text>
+          <text x="35" y="116" fill="#94a3b8" font-size="10">patient_id, name, age, gender, contact</text>
+          <text x="20" y="140" fill="#f8fafc" font-size="11" font-weight="600">&#128394; test_requests</text>
+          <text x="35" y="156" fill="#94a3b8" font-size="10">test_id, patient_id, test_type, status</text>
+          <text x="20" y="178" fill="#4ade80" font-size="10" font-weight="600">&#10003; Local Sovereignty (Zero Direct DB Sharing)</text>
+        </g>
+
+        <!-- DB Features -->
+        <g transform="translate(305, 45)">
+          <rect width="290" height="195" rx="8" fill="#0b1120" stroke="#334155" />
+          <text x="145" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Security &amp; Integrity Controls</text>
+          <line x1="15" y1="38" x2="275" y2="38" stroke="#1e293b" stroke-width="2" />
+          <text x="20" y="65" fill="#cbd5e1" font-size="11">&#8226; Foreign Key Referential Integrity</text>
+          <text x="20" y="90" fill="#cbd5e1" font-size="11">&#8226; ACID Transaction Guarantees</text>
+          <text x="20" y="115" fill="#cbd5e1" font-size="11">&#8226; Unique Requisition Constraint Checks</text>
+          <text x="20" y="140" fill="#cbd5e1" font-size="11">&#8226; Encrypted at Rest Deployment</text>
+          <text x="20" y="170" fill="#38bdf8" font-size="10.5" font-weight="600">&#128274; Unreachable from Public Network</text>
+        </g>
+      </g>
+
+      <!-- Right Box: REST Client Integration Layer -->
+      <g transform="translate(660, 0)">
+        <rect width="620" height="260" rx="12" fill="url(#tierGrad)" stroke="#0284c7" stroke-width="1.5" filter="url(#dropShadow)" />
+        <rect x="0" y="0" width="620" height="32" rx="12" fill="#0369a1" />
+        <text x="20" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="0.5">TIER 4B: REST CLIENT INTEGRATION ENGINE (services/)</text>
+
+        <!-- Service Module 1 -->
+        <g transform="translate(25, 45)">
+          <rect width="270" height="195" rx="8" fill="#0b1120" stroke="#0284c7" />
+          <text x="135" y="28" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">services/lab_api_service.py</text>
+          <line x1="15" y1="38" x2="255" y2="38" stroke="#1e293b" stroke-width="2" />
+          <text x="15" y="58" fill="#f8fafc" font-size="11" font-weight="600">&#8226; Function: send_test_request()</text>
+          <text x="15" y="78" fill="#94a3b8" font-size="10.5">&#8226; Injects X-API-Key Secret</text>
+          <text x="15" y="96" fill="#94a3b8" font-size="10.5">&#8226; Constructs JSON Payload:</text>
+          <text x="25" y="112" fill="#38bdf8" font-size="9.5">{ test_id, patient_id, test_type, priority }</text>
+          <text x="15" y="132" fill="#94a3b8" font-size="10.5">&#8226; Executes HTTP POST</text>
+          <text x="15" y="152" fill="#94a3b8" font-size="10.5">&#8226; Translates HTTP 201/409/400</text>
+          <text x="15" y="175" fill="#4ade80" font-size="10" font-weight="700">&#10003; Real-Time Confirmation</text>
+        </g>
+
+        <!-- Service Module 2 -->
+        <g transform="translate(320, 45)">
+          <rect width="275" height="195" rx="8" fill="#0b1120" stroke="#0284c7" />
+          <text x="137" y="28" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">services/result_sync_service.py</text>
+          <line x1="15" y1="38" x2="260" y2="38" stroke="#1e293b" stroke-width="2" />
+          <text x="15" y="58" fill="#f8fafc" font-size="11" font-weight="600">&#8226; Function: sync_results()</text>
+          <text x="15" y="78" fill="#94a3b8" font-size="10.5">&#8226; Queries 'Sent to Lab' Records</text>
+          <text x="15" y="96" fill="#94a3b8" font-size="10.5">&#8226; Dispatches HTTP GET /results/&lt;id&gt;</text>
+          <text x="15" y="116" fill="#94a3b8" font-size="10.5">&#8226; Handles 404 Pending Gracefully</text>
+          <text x="15" y="136" fill="#94a3b8" font-size="10.5">&#8226; Unpacks Findings &amp; Flags</text>
+          <text x="15" y="156" fill="#94a3b8" font-size="10.5">&#8226; Commits into test_results</text>
+          <text x="15" y="175" fill="#4ade80" font-size="10" font-weight="700">&#10003; Automated Status Transition</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Downward Flow to REST Gateway -->
+    <path d="M 970 805 L 970 835" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arrowCyan)" />
+
+    <!-- TIER 5: EXTERNAL INTEGRATION GATEWAY & TARGET DESTINATION -->
+    <g transform="translate(0, 840)">
+      <rect width="1280" height="160" rx="12" fill="url(#tierGrad)" stroke="#38bdf8" stroke-width="2" filter="url(#dropShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#0284c7" />
+      <text x="20" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="0.5">TIER 5: OUTBOUND REST BOUNDARY &amp; LABORATORY SYSTEM DESTINATION</text>
+
+      <!-- REST Client Protocol Details -->
+      <g transform="translate(30, 45)">
+        <rect width="600" height="100" rx="8" fill="#0b1120" stroke="#0284c7" />
+        <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">Outbound HTTP REST API Contract</text>
+        <text x="20" y="48" fill="#e2e8f0" font-size="11">&#8226; Order Dispatch: <tspan fill="#38bdf8" font-weight="700">POST http://&lt;lab-host&gt;:5000/api/requests</tspan></text>
+        <text x="20" y="68" fill="#e2e8f0" font-size="11">&#8226; Result Ingestion: <tspan fill="#4ade80" font-weight="700">GET http://&lt;lab-host&gt;:5000/api/results/&lt;test_id&gt;</tspan></text>
+        <text x="20" y="88" fill="#94a3b8" font-size="10.5">&#8226; Security: Direct Header Token Authorization (<tspan fill="#c084fc">X-API-Key: ${LAB_API_KEY}</tspan>)</text>
+      </g>
+
+      <!-- Target External System -->
+      <g transform="translate(660, 45)">
+        <rect width="590" height="100" rx="8" fill="#180e0a" stroke="#ea580c" stroke-width="1.5" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="800">TARGET: DIAGNOSTIC LABORATORY PORTAL [PORT 5000]</text>
+        <text x="20" y="48" fill="#fed7aa" font-size="11">&#8226; Dedicated Server Instance running validation_service &amp; analyzer pipeline</text>
+        <text x="20" y="68" fill="#fed7aa" font-size="11">&#8226; Evaluates physiological measurements &amp; serves verified outcomes</text>
+        <text x="20" y="88" fill="#4ade80" font-size="10.5" font-weight="700">&#10003; Replaces Dropbox API: Zero 4-hr Token Expiry, Zero Cloud Storage Costs</text>
+      </g>
+    </g>
+
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(700, 1125)" text-anchor="middle">
+    <text fill="#64748b" font-size="11.5">
+      Hospital Management Portal Architecture | Python Flask 3.10+ | SQLite3 | REST API Client (Port 5001)
+    </text>
+  </g>
+</svg>

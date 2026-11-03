@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1380" width="1600" height="1380" style="background:#F6F8FA;">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  
+  /* Domain Enclosures */
+  .domain-hosp { fill: #F0F7FD; stroke: #1B6EC2; stroke-width: 2; rx: 12; ry: 12; }
+  .domain-lab  { fill: #F0F9F5; stroke: #107C41; stroke-width: 2; rx: 12; ry: 12; }
+  .api-tunnel  { fill: #FFF9E6; stroke: #E67E22; stroke-width: 2; stroke-dasharray: 6 4; rx: 8; ry: 8; }
+  
+  /* Titles &amp; Headers */
+  .title-main  { font-size: 22px; font-weight: 800; fill: #1A202C; text-anchor: middle; }
+  .title-sub   { font-size: 13px; font-weight: 500; fill: #4A5568; text-anchor: middle; }
+  .domain-hdr-hosp { font-size: 15px; font-weight: 700; fill: #0B4F8A; }
+  .domain-hdr-lab  { font-size: 15px; font-weight: 700; fill: #0E6251; }
+  
+  /* Component Nodes */
+  .node-terminal { fill: #2C3E50; rx: 18; ry: 18; }
+  .node-term-text { fill: #FFFFFF; font-size: 12.5px; font-weight: 600; text-anchor: middle; }
+  
+  .node-hosp { fill: #FFFFFF; stroke: #1B6EC2; stroke-width: 1.8; rx: 6; ry: 6; }
+  .node-hosp-hdr { fill: #0B4F8A; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .node-hosp-sub { fill: #2D3748; font-size: 11px; font-weight: 500; text-anchor: middle; }
+  
+  .node-lab { fill: #FFFFFF; stroke: #107C41; stroke-width: 1.8; rx: 6; ry: 6; }
+  .node-lab-hdr { fill: #0E6251; font-size: 13px; font-weight: 700; text-anchor: middle; }
+  .node-lab-sub { fill: #2D3748; font-size: 11px; font-weight: 500; text-anchor: middle; }
+  
+  .node-db { fill: #F7FAFC; stroke: #4A5568; stroke-width: 1.6; rx: 6; ry: 6; }
+  .node-db-hdr { fill: #2D3748; font-size: 12px; font-weight: 700; text-anchor: middle; }
+  .node-db-sub { fill: #718096; font-size: 10.5px; font-weight: 500; text-anchor: middle; }
+  
+  .node-decision { fill: #FFF9E6; stroke: #D97706; stroke-width: 1.8; }
+  .node-dec-text { fill: #92400E; font-size: 11.5px; font-weight: 600; text-anchor: middle; }
+  
+  /* Connector Arrows */
+  .arr-hosp { stroke: #1B6EC2; stroke-width: 1.8; fill: none; }
+  .arr-lab  { stroke: #107C41; stroke-width: 1.8; fill: none; }
+  .arr-api  { stroke: #D97706; stroke-width: 2.2; fill: none; }
+  
+  .api-badge { fill: #D97706; rx: 4; ry: 4; }
+  .api-badge-text { fill: #FFFFFF; font-size: 11px; font-weight: 700; text-anchor: middle; }
+  
+  .step-num { font-size: 11px; font-weight: 700; fill: #FFFFFF; }
+</style>
+
+<defs>
+  <marker id="arr-h" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#1B6EC2" />
+  </marker>
+  <marker id="arr-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#107C41" />
+  </marker>
+  <marker id="arr-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#D97706" />
+  </marker>
+</defs>
+
+<!-- PAGE TITLE -->
+<text x="800" y="42" class="title-main">HOSPITAL ↔ DIAGNOSTIC LABORATORY: OVERALL SYSTEM FLOW DIAGRAM</text>
+<text x="800" y="66" class="title-sub">End-to-End Architectural Data Flow via Authenticated REST APIs (Synchronous Order Ingestion &amp; Result Retrieval)</text>
+
+<!-- ==================== 1. HOSPITAL DOMAIN ENCLOSURE ==================== -->
+<rect class="domain-hosp" x="40" y="95" width="680" height="1240" />
+<text class="domain-hdr-hosp" x="65" y="128">🏥 HOSPITAL PATIENT &amp; TEST PORTAL (Port 5001)</text>
+<text x="65" y="146" font-size="11" fill="#4A5568">Responsible for Patient Profiles, Test Requisitions, and Clinical Result Presentation</text>
+
+<!-- ==================== 2. LABORATORY DOMAIN ENCLOSURE ==================== -->
+<rect class="domain-lab" x="880" y="95" width="680" height="1240" />
+<text class="domain-hdr-lab" x="905" y="128">🔬 DIAGNOSTIC LABORATORY PROCESSING PORTAL (Port 5000)</text>
+<text x="905" y="146" font-size="11" fill="#4A5568">Responsible for Inbound Ingestion, Analyzer Measurements, Reference Bounds &amp; Delivery</text>
+
+<!-- ==================== HOSPITAL NODES ==================== -->
+
+<!-- H1: Start -->
+<rect class="node-terminal" x="230" y="170" width="300" height="38" />
+<text class="node-term-text" x="380" y="189" dy="4">Start: Hospital Clinician initiates test</text>
+
+<!-- Link H1 -> H2 -->
+<line class="arr-hosp" x1="380" y1="208" x2="380" y2="245" marker-end="url(#arr-h)" />
+
+<!-- H2: Patient Registration -->
+<rect class="node-hosp" x="180" y="245" width="400" height="52" />
+<text class="node-hosp-hdr" x="380" y="266">routes/patients.py</text>
+<text class="node-hosp-sub" x="380" y="284">Register patient profile (Patient_ID, Name, Age, Gender, Doctor)</text>
+
+<!-- Link H2 -> H_DB1 -->
+<line class="arr-hosp" x1="180" y1="271" x2="110" y2="271" marker-end="url(#arr-h)" />
+<rect class="node-db" x="30" y="245" width="80" height="52" />
+<text class="node-db-hdr" x="70" y="267">hospital.db</text>
+<text class="node-db-sub" x="70" y="283">patients</text>
+
+<!-- Link H2 -> H3 -->
+<line class="arr-hosp" x1="380" y1="297" x2="380" y2="335" marker-end="url(#arr-h)" />
+
+<!-- H3: Test Order Creation -->
+<rect class="node-hosp" x="180" y="335" width="400" height="52" />
+<text class="node-hosp-hdr" x="380" y="356">routes/test_requests.py</text>
+<text class="node-hosp-sub" x="380" y="374">Staff selects patient &amp; submits order (Test_ID, CBC/Glucose, Priority)</text>
+
+<!-- Link H3 -> H_DEC1 -->
+<line class="arr-hosp" x1="380" y1="387" x2="380" y2="425" marker-end="url(#arr-h)" />
+
+<!-- H_DEC1: Local Validation -->
+<polygon class="node-decision" points="380,425 480,480 380,535 280,480" />
+<text class="node-dec-text" x="380" y="474">Local Uniqueness &amp;</text>
+<text class="node-dec-text" x="380" y="492">Patient Exists?</text>
+
+<!-- H_DEC1: Valid -> H4 (REST Client) -->
+<line class="arr-hosp" x1="380" y1="535" x2="380" y2="575" marker-end="url(#arr-h)" />
+<rect x="390" y="545" width="30" height="16" rx="3" ry="3" fill="#2D3748" />
+<text x="405" y="557" class="step-num" text-anchor="middle">Yes</text>
+
+<!-- H4: REST Client Dispatch -->
+<rect class="node-hosp" x="180" y="575" width="400" height="56" />
+<text class="node-hosp-hdr" x="380" y="597">services/lab_api_service.py</text>
+<text class="node-hosp-sub" x="380" y="615">submit_test_request(payload) • Formats JSON + Attaches X-API-Key</text>
+
+
+<!-- ==================== CROSS-BOUNDARY REST API TUNNEL 1 (POST REQUEST) ==================== -->
+<!-- Line H4 -> L1 (Crossing from Hospital to Lab) -->
+<path class="arr-api" d="M 580 603 L 830 603 L 830 271 L 1020 271" marker-end="url(#arr-orange)" />
+
+<!-- API Badge in middle -->
+<rect class="api-badge" x="690" y="405" width="220" height="38" />
+<text class="api-badge-text" x="800" y="423">1. POST /api/requests</text>
+<text class="api-badge-text" x="800" y="437" font-size="9.5px">Header: X-API-Key • JSON Order</text>
+
+
+<!-- ==================== LABORATORY NODES ==================== -->
+
+<!-- L1: Ingestion API Endpoint -->
+<rect class="node-lab" x="1020" y="245" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="266">routes/requests.py (@require_api_key)</text>
+<text class="node-lab-sub" x="1220" y="284">Authenticates caller token &amp; ingests inbound HTTP POST payload</text>
+
+<!-- Link L1 -> L2 -->
+<line class="arr-lab" x1="1220" y1="297" x2="1220" y2="335" marker-end="url(#arr-l)" />
+
+<!-- L2: Schema Validation -->
+<rect class="node-lab" x="1020" y="335" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="356">services/validation_service.py</text>
+<text class="node-lab-sub" x="1220" y="374">Checks required fields, valid test types &amp; duplicate test_id</text>
+
+<!-- Link L2 -> L_DEC1 -->
+<line class="arr-lab" x1="1220" y1="387" x2="1220" y2="425" marker-end="url(#arr-l)" />
+
+<!-- L_DEC1: Schema Valid? -->
+<polygon class="node-decision" points="1220,425 1320,480 1220,535 1120,480" />
+<text class="node-dec-text" x="1220" y="474">Schema Valid &amp;</text>
+<text class="node-dec-text" x="1220" y="492">Test Supported?</text>
+
+<!-- L_DEC1: Yes -> L3 (Insert Lab DB) -->
+<line class="arr-lab" x1="1220" y1="535" x2="1220" y2="575" marker-end="url(#arr-l)" />
+<rect x="1230" y="545" width="30" height="16" rx="3" ry="3" fill="#2D3748" />
+<text x="1245" y="557" class="step-num" text-anchor="middle">Yes</text>
+
+<!-- L3: Insert into Laboratory DB -->
+<rect class="node-lab" x="1020" y="575" width="400" height="56" />
+<text class="node-lab-hdr" x="1220" y="597">database/models.py (RequestModel)</text>
+<text class="node-lab-sub" x="1220" y="615">Atomic INSERT into laboratory.db • Sets Status: 'Pending'</text>
+
+<!-- Link L3 -> L_DB1 -->
+<line class="arr-lab" x1="1420" y1="603" x2="1490" y2="603" marker-end="url(#arr-l)" />
+<rect class="node-db" x="1490" y="577" width="90" height="52" />
+<text class="node-db-hdr" x="1535" y="599">laboratory.db</text>
+<text class="node-db-sub" x="1535" y="615">test_requests</text>
+
+<!-- Synchronous Acknowledgment back from L3 to Hospital H5 -->
+<path class="arr-api" d="M 1020 603 L 830 603 L 830 730 L 580 730" stroke-dasharray="6 4" marker-end="url(#arr-orange)" />
+<rect class="api-badge" x="700" y="650" width="200" height="34" />
+<text class="api-badge-text" x="800" y="666">HTTP 201 Created</text>
+<text class="api-badge-text" x="800" y="678" font-size="9px">{ success: true, message: "Queued" }</text>
+
+<!-- H5: Hospital Commits 'Sent to Laboratory' upon 201 Receipt -->
+<rect class="node-hosp" x="180" y="705" width="400" height="52" />
+<text class="node-hosp-hdr" x="380" y="726">database/database.py</text>
+<text class="node-hosp-sub" x="380" y="744">Commit INSERT test_requests • Status: 'Sent to Laboratory'</text>
+
+<!-- Link H5 -> H_DB2 -->
+<line class="arr-hosp" x1="180" y1="731" x2="110" y2="731" marker-end="url(#arr-h)" />
+<rect class="node-db" x="30" y="705" width="80" height="52" />
+<text class="node-db-hdr" x="70" y="727">hospital.db</text>
+<text class="node-db-sub" x="70" y="743">test_requests</text>
+
+<!-- Continue Laboratory Lifecycle Workflow -->
+<!-- Link L3 -> L4 -->
+<line class="arr-lab" x1="1220" y1="631" x2="1220" y2="705" marker-end="url(#arr-l)" />
+
+<!-- L4: Lab Staff Lifecycle -->
+<rect class="node-lab" x="1020" y="705" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="726">routes/requests.py</text>
+<text class="node-lab-sub" x="1220" y="744">Technician updates status: Pending -&gt; Validated -&gt; Processing</text>
+
+<!-- Link L4 -> L5 -->
+<line class="arr-lab" x1="1220" y1="757" x2="1220" y2="795" marker-end="url(#arr-l)" />
+
+<!-- L5: Measurement Entry UI -->
+<rect class="node-lab" x="1020" y="795" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="816">routes/results.py (process_test.html)</text>
+<text class="node-lab-sub" x="1220" y="834">Technician submits quantitative clinical analyzer measurements</text>
+
+<!-- Link L5 -> L6 -->
+<line class="arr-lab" x1="1220" y1="847" x2="1220" y2="885" marker-end="url(#arr-l)" />
+
+<!-- L6: Reference Interval Engine -->
+<rect class="node-lab" x="1020" y="885" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="906">services/processing_service.py</text>
+<text class="node-lab-sub" x="1220" y="924">Evaluates bounds against REFERENCE_RANGES (CBC, Glucose, Lipids)</text>
+
+<!-- Link L6 -> L7 -->
+<line class="arr-lab" x1="1220" y1="937" x2="1220" y2="975" marker-end="url(#arr-l)" />
+
+<!-- L7: Save Completed Result in Lab DB -->
+<rect class="node-lab" x="1020" y="975" width="400" height="54" />
+<text class="node-lab-hdr" x="1220" y="996">database/models.py (ResultModel)</text>
+<text class="node-lab-sub" x="1220" y="1014">INSERT test_results • Marks Request status: 'Completed'</text>
+
+<!-- Link L7 -> L_DB2 -->
+<line class="arr-lab" x1="1420" y1="1002" x2="1490" y2="1002" marker-end="url(#arr-l)" />
+<rect class="node-db" x="1490" y="976" width="90" height="52" />
+<text class="node-db-hdr" x="1535" y="998">laboratory.db</text>
+<text class="node-db-sub" x="1535" y="1014">test_results</text>
+
+<!-- Link L7 -> L8 (Exposing over REST endpoint) -->
+<line class="arr-lab" x1="1220" y1="1029" x2="1220" y2="1065" marker-end="url(#arr-l)" />
+
+<!-- L8: Ready for Delivery API -->
+<rect class="node-lab" x="1020" y="1065" width="400" height="52" />
+<text class="node-lab-hdr" x="1220" y="1086">GET /api/results/&lt;test_id&gt;</text>
+<text class="node-lab-sub" x="1220" y="1104">Exposed endpoint returns diagnostic JSON payload to authenticated Hospital</text>
+
+
+<!-- ==================== CROSS-BOUNDARY REST API TUNNEL 2 (FETCH RESULT) ==================== -->
+
+<!-- Link H5 -> H6 (Hospital Initiates Result Sync) -->
+<line class="arr-hosp" x1="380" y1="757" x2="380" y2="885" marker-end="url(#arr-h)" />
+
+<!-- H6: Doctor Clicks Result Retrieval -->
+<rect class="node-hosp" x="180" y="885" width="400" height="52" />
+<text class="node-hosp-hdr" x="380" y="906">routes/results.py</text>
+<text class="node-hosp-sub" x="380" y="924">Clinician triggers "Check Laboratory Result" or "Sync Results"</text>
+
+<!-- Link H6 -> H7 -->
+<line class="arr-hosp" x1="380" y1="937" x2="380" y2="975" marker-end="url(#arr-h)" />
+
+<!-- H7: Lab API Client Fetch -->
+<rect class="node-hosp" x="180" y="975" width="400" height="54" />
+<text class="node-hosp-hdr" x="380" y="996">services/lab_api_service.py</text>
+<text class="node-hosp-sub" x="380" y="1014">fetch_result(test_id) • Issues HTTP GET /api/results/&lt;test_id&gt;</text>
+
+<!-- HTTP GET from H7 to L8 -->
+<path class="arr-api" d="M 580 1002 L 770 1002 L 770 1091 L 1020 1091" marker-end="url(#arr-orange)" />
+<rect class="api-badge" x="650" y="1030" width="210" height="34" />
+<text class="api-badge-text" x="755" y="1046">2. GET /api/results/&lt;id&gt;</text>
+<text class="api-badge-text" x="755" y="1058" font-size="9px">Header: X-API-Key</text>
+
+<!-- HTTP 200 Return Payload from L8 to H8 -->
+<path class="arr-api" d="M 1020 1105 L 830 1105 L 830 1180 L 580 1180" stroke-dasharray="6 4" marker-end="url(#arr-orange)" />
+<rect class="api-badge" x="700" y="1135" width="200" height="34" />
+<text class="api-badge-text" x="800" y="1151">HTTP 200 OK (JSON)</text>
+<text class="api-badge-text" x="800" y="1163" font-size="9px">{ measurements, status, remarks }</text>
+
+<!-- H8: Result Ingestion &amp; Persistence -->
+<rect class="node-hosp" x="180" y="1155" width="400" height="54" />
+<text class="node-hosp-hdr" x="380" y="1176">services/result_sync_service.py</text>
+<text class="node-hosp-sub" x="380" y="1194">Persist measurements JSON into test_results • Status: Completed/Abnormal</text>
+
+<!-- Link H8 -> H_DB3 -->
+<line class="arr-hosp" x1="180" y1="1182" x2="110" y2="1182" marker-end="url(#arr-h)" />
+<rect class="node-db" x="30" y="1156" width="80" height="52" />
+<text class="node-db-hdr" x="70" y="1178">hospital.db</text>
+<text class="node-db-sub" x="70" y="1194">test_results</text>
+
+<!-- Link H8 -> H9 -->
+<line class="arr-hosp" x1="380" y1="1209" x2="380" y2="1245" marker-end="url(#arr-h)" />
+
+<!-- H9: Doctor Result Presentation -->
+<rect class="node-hosp" x="180" y="1245" width="400" height="52" />
+<text class="node-hosp-hdr" x="380" y="1266">templates/result_details.html</text>
+<text class="node-hosp-sub" x="380" y="1284">Clinician reviews diagnostic report cards, Normal/Abnormal tags &amp; remarks</text>
+
+<!-- Link H9 -> Terminal End -->
+<line class="arr-hosp" x1="380" y1="1297" x2="380" y2="1325" />
+<line class="arr-hosp" x1="380" y1="1325" x2="800" y2="1325" />
+
+<!-- Terminal Finish -->
+<rect class="node-terminal" x="650" y="1308" width="300" height="34" />
+<text class="node-term-text" x="800" y="1326" dy="4">Finish: Complete Clinical Diagnostic Lifecycle</text>
+
+</svg>

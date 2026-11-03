@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Create Test Request</h1>
+    <a href="{{ url_for('test_requests.index') }}" class="btn btn-outline-secondary">Back to Requests</a>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4">
+                <form method="POST">
+                    
+                    <div class="mb-4 p-3 bg-light rounded border">
+                        <label for="patient_id" class="form-label fw-bold">Select Patient *</label>
+                        <select class="form-select form-select-lg" id="patient_id" name="patient_id" required>
+                            <option value="">-- Choose a patient --</option>
+                            {% for p in patients %}
+                            <option value="{{ p.patient_id }}">{{ p.patient_id }} - {{ p.patient_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-text mt-2">
+                            Can't find the patient? <a href="{{ url_for('patients.create') }}">Register them first</a>.
+                        </div>
+                    </div>
+
+                    <h5 class="mb-3 text-primary border-bottom pb-2">Test Details</h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="test_id" class="form-label">Test ID *</label>
+                            <input type="text" class="form-control" id="test_id" name="test_id" required placeholder="e.g., T1001">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="requested_date" class="form-label">Requested Date *</label>
+                            <input type="date" class="form-control" id="requested_date" name="requested_date" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="test_type" class="form-label">Test Type *</label>
+                            <select class="form-select" id="test_type" name="test_type" required>
+                                <option value="">Select...</option>
+                                <option value="CBC">CBC (Complete Blood Count)</option>
+                                <option value="Blood Sugar">Blood Sugar</option>
+                                <option value="Lipid Profile">Lipid Profile</option>
+                                <option value="Liver Function Test">Liver Function Test</option>
+                                <option value="Thyroid Profile">Thyroid Profile</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sample_type" class="form-label">Sample Type *</label>
+                            <select class="form-select" id="sample_type" name="sample_type" required>
+                                <option value="">Select...</option>
+                                <option value="Blood">Blood</option>
+                                <option value="Urine">Urine</option>
+                                <option value="Stool">Stool</option>
+                                <option value="Swab">Swab</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="priority" class="form-label">Priority *</label>
+                            <select class="form-select" id="priority" name="priority" required>
+                                <option value="Normal">Normal</option>
+                                <option value="Urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="instructions" class="form-label">Special Instructions for Laboratory</label>
+                        <textarea class="form-control" id="instructions" name="instructions" rows="3" placeholder="Fasting required, specific parameters, etc."></textarea>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <i class="bi bi-broadcast me-2"></i> Submitting this form will securely transmit the test request to the Diagnostic Laboratory Portal via REST API.
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Test Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set today's date as default
+    document.getElementById('requested_date').valueAsDate = new Date();
+</script>
+{% endblock %}

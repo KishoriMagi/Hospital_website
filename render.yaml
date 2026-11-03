@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: hospital-management-portal
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: LAB_API_URL
+        sync: false  # Set to your deployed Laboratory Portal Render URL
+      - key: LAB_API_KEY
+        sync: false  # Set to the agreed secret key
+      - key: LAB_API_TIMEOUT
+        value: 15
+      - key: USE_REST_API
+        value: "True"
+      - key: PYTHON_VERSION
+        value: 3.10.11

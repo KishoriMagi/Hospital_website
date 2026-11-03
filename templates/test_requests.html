@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Test Requests</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="{{ url_for('test_requests.create') }}" class="btn btn-sm btn-primary">
+            <i class="bi bi-file-medical"></i> Create Test Request
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Test ID</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Test Type</th>
+                        <th>Date</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for req in requests %}
+                    <tr>
+                        <td>{{ req.test_id }}</td>
+                        <td><a href="{{ url_for('patients.details', patient_id=req.patient_id) }}">{{ req.patient_id }}</a></td>
+                        <td>{{ req.patient_name }}</td>
+                        <td>{{ req.test_type }}</td>
+                        <td>{{ req.requested_date }}</td>
+                        <td>
+                            {% if req.priority == 'Urgent' %}
+                            <span class="badge bg-danger">Urgent</span>
+                            {% else %}
+                            <span class="badge bg-secondary">Normal</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge {% if req.status == 'Pending' %}bg-secondary{% elif req.status == 'Completed' %}bg-success{% elif req.status == 'Abnormal' %}bg-danger{% else %}bg-info{% endif %}">
+                                {{ req.status }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('test_requests.details', test_id=req.test_id) }}" class="btn btn-sm btn-info text-white">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            {% if req.status in ['Completed', 'Abnormal'] %}
+                            <a href="{{ url_for('results.details', test_id=req.test_id) }}" class="btn btn-sm btn-success">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center py-4">No test requests found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

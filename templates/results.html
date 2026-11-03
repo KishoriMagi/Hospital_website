@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Laboratory Results</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <form action="{{ url_for('results.sync') }}" method="POST">
+            <button type="submit" class="btn btn-sm btn-outline-success">
+                <i class="bi bi-arrow-repeat"></i> Sync New Results
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Test ID</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Test Type</th>
+                        <th>Processed Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result.test_id }}</td>
+                        <td><a href="{{ url_for('patients.details', patient_id=result.patient_id) }}">{{ result.patient_id }}</a></td>
+                        <td>{{ result.patient_name }}</td>
+                        <td>{{ result.test_type }}</td>
+                        <td>{{ result.processed_date }}</td>
+                        <td>
+                            <span class="badge {% if result.result_status == 'Normal' %}bg-success{% elif result.result_status == 'Abnormal' %}bg-danger{% else %}bg-secondary{% endif %}">
+                                {{ result.result_status }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('results.details', test_id=result.test_id) }}" class="btn btn-sm btn-info text-white">
+                                <i class="bi bi-eye"></i> View Result
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center py-4">No results found. Click "Sync New Results" to fetch from Laboratory Portal via REST API.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

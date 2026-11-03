@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Result Details: {{ result.test_id }}</h1>
+    <a href="{{ url_for('results.index') }}" class="btn btn-outline-secondary">Back to Results</a>
+</div>
+
+<div class="row">
+    <!-- Test Info -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i> Result Summary</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-borderless mb-0">
+                    <tbody>
+                        <tr><th class="w-40 text-end text-muted">Test ID:</th><td><strong>{{ result.test_id }}</strong></td></tr>
+                        <tr><th class="text-end text-muted">Patient:</th>
+                            <td><a href="{{ url_for('patients.details', patient_id=result.patient_id) }}">{{ result.patient_name }} ({{ result.patient_id }})</a></td>
+                        </tr>
+                        <tr><th class="text-end text-muted">Test Type:</th><td>{{ result.test_type }}</td></tr>
+                        <tr><th class="text-end text-muted">Sample Type:</th><td>{{ result.sample_type }}</td></tr>
+                        <tr><th class="text-end text-muted">Requested On:</th><td>{{ result.requested_date }}</td></tr>
+                        <tr><th class="text-end text-muted border-top pt-3">Processed On:</th><td class="border-top pt-3">{{ result.processed_date }}</td></tr>
+                        <tr><th class="text-end text-muted">Overall Status:</th>
+                            <td>
+                                <span class="badge {% if result.result_status == 'Normal' %}bg-success{% elif result.result_status == 'Abnormal' %}bg-danger{% else %}bg-secondary{% endif %} fs-6">
+                                    {{ result.result_status }}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Measurements -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100 border-{% if result.result_status == 'Abnormal' %}danger{% else %}success{% endif %}">
+            <div class="card-header bg-{% if result.result_status == 'Abnormal' %}danger{% else %}success{% endif %} text-white">
+                <h5 class="mb-0"><i class="bi bi-activity me-2"></i> Measurements</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in measurements.items() %}
+                            <tr>
+                                <th>{{ key.replace('_', ' ') }}</th>
+                                <td><strong>{{ value }}</strong></td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="2" class="text-center text-muted py-3">No measurement data available.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="bi bi-chat-text me-2"></i> Laboratory Remarks</h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-0 fs-5">{{ result.remarks or 'No remarks provided by the laboratory.' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

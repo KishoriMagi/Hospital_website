@@ -1,0 +1,296 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1150" width="100%" height="100%" style="background-color: #110d0a; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="labBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0805" />
+      <stop offset="50%" stop-color="#17100b" />
+      <stop offset="100%" stop-color="#0d0805" />
+    </linearGradient>
+
+    <linearGradient id="labHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="100%" stop-color="#c2410c" />
+    </linearGradient>
+
+    <linearGradient id="labTierGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#241712" />
+      <stop offset="100%" stop-color="#140d09" />
+    </linearGradient>
+
+    <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <filter id="labShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Markers -->
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#fb923c" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#4ade80" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1150" fill="url(#labBgGrad)" />
+
+  <!-- Grid lines -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <pattern id="labGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1400" height="1150" fill="url(#labGrid)" />
+  </g>
+
+  <!-- Title Header -->
+  <g transform="translate(700, 45)" text-anchor="middle">
+    <rect x="-480" y="-25" width="960" height="58" rx="29" fill="#241712" stroke="#ea580c" stroke-width="2" />
+    <text y="7" fill="#f8fafc" font-size="20" font-weight="800" letter-spacing="1">
+      DIAGNOSTIC LABORATORY PORTAL - SYSTEM ARCHITECTURE
+    </text>
+    <text y="46" fill="#a8a29e" font-size="13">
+      Automated Pathology Processing Engine, Dual-Mode Security, and Programmatic REST Server
+    </text>
+  </g>
+
+  <!-- MAIN CONTAINER -->
+  <g transform="translate(60, 95)">
+
+    <!-- TIER 1: INGRESS CLIENTS & INBOUND ACTORS -->
+    <g transform="translate(0, 0)">
+      <rect width="1280" height="120" rx="12" fill="url(#labTierGrad)" stroke="#432c25" stroke-width="1.5" filter="url(#labShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#c2410c" />
+      <rect x="0" y="16" width="1280" height="16" fill="#c2410c" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 1: CONSUMERS, ACTORS &amp; INGRESS GATES</text>
+
+      <!-- External Hospital REST Client -->
+      <g transform="translate(30, 45)">
+        <rect width="370" height="60" rx="8" fill="#17100b" stroke="#38bdf8" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#0284c7" />
+        <text x="35" y="36" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">API</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Hospital Portal REST Client [Port 5001]</text>
+        <text x="65" y="46" fill="#38bdf8" font-size="11">Automated POST Orders &amp; GET Result Sync</text>
+      </g>
+
+      <!-- Lab Technicians -->
+      <g transform="translate(450, 45)">
+        <rect width="370" height="60" rx="8" fill="#17100b" stroke="#ea580c" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#ea580c" />
+        <text x="35" y="36" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">LT</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Pathology Laboratory Technicians</text>
+        <text x="65" y="46" fill="#fed7aa" font-size="11">Specimen Intake, Analyzer Tests, Data Entry</text>
+      </g>
+
+      <!-- Pathologist / Lab Admin -->
+      <g transform="translate(870, 45)">
+        <rect width="380" height="60" rx="8" fill="#17100b" stroke="#432c25" stroke-width="1.5" />
+        <circle cx="35" cy="30" r="16" fill="#241712" />
+        <text x="35" y="36" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">&#9881;</text>
+        <text x="65" y="27" fill="#f8fafc" font-size="13" font-weight="700">Pathologist &amp; Quality Control Director</text>
+        <text x="65" y="46" fill="#a8a29e" font-size="11">Final Diagnostic Sign-off &amp; Audit Logs</text>
+      </g>
+    </g>
+
+    <!-- Downward Flow -->
+    <path d="M 640 120 L 640 148" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrowOrange)" />
+
+    <!-- TIER 2: SECURITY & GATEWAY TIER (DUAL-MODE ACCESS CONTROL) -->
+    <g transform="translate(0, 150)">
+      <rect width="1280" height="150" rx="12" fill="url(#labTierGrad)" stroke="#432c25" stroke-width="1.5" filter="url(#labShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#ea580c" />
+      <rect x="0" y="16" width="1280" height="16" fill="#ea580c" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 2: SECURITY, AUTHENTICATION &amp; ACCESS CONTROL GATEWAY</text>
+
+      <!-- Guard 1: API Key Decorator -->
+      <g transform="translate(30, 45)">
+        <rect width="380" height="85" rx="8" fill="#17100b" stroke="#a855f7" stroke-width="1.5" />
+        <text x="20" y="26" fill="#c084fc" font-size="12" font-weight="800">@require_api_key Gate (REST Layer)</text>
+        <text x="20" y="46" fill="#e2e8f0" font-size="10.5">&#8226; Inspects Inbound Request Headers</text>
+        <text x="20" y="62" fill="#e2e8f0" font-size="10.5">&#8226; Verifies Header: <tspan fill="#c084fc">X-API-Key: ${LAB_API_KEY}</tspan></text>
+        <text x="20" y="78" fill="#f87171" font-size="10.5">&#8226; Immediate HTTP 401 Rejection if Unauthorized</text>
+      </g>
+
+      <!-- Guard 2: Web Session Auth -->
+      <g transform="translate(450, 45)">
+        <rect width="380" height="85" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="26" fill="#fb923c" font-size="12" font-weight="700">Flask Session Auth (Technician UI)</text>
+        <text x="20" y="46" fill="#e2e8f0" font-size="10.5">&#8226; Secure Cookie-Based State Management</text>
+        <text x="20" y="62" fill="#e2e8f0" font-size="10.5">&#8226; PBKDF2 Encrypted Password Matching</text>
+        <text x="20" y="78" fill="#e2e8f0" font-size="10.5">&#8226; Role-Gated Laboratory Routes (@login_required)</text>
+      </g>
+
+      <!-- Guard 3: Rate Limiting & Audit Guard -->
+      <g transform="translate(870, 45)">
+        <rect width="380" height="85" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="26" fill="#fb923c" font-size="12" font-weight="700">Security &amp; Network Protections</text>
+        <text x="20" y="46" fill="#e2e8f0" font-size="10.5">&#8226; Strict Content-Type Validation (application/json)</text>
+        <text x="20" y="62" fill="#e2e8f0" font-size="10.5">&#8226; HTTP CORS Header Isolation</text>
+        <text x="20" y="78" fill="#4ade80" font-size="10.5">&#8226; Atomic Connection Pooling in SQLite</text>
+      </g>
+    </g>
+
+    <!-- Downward Flow -->
+    <path d="M 640 300 L 640 328" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrowOrange)" />
+
+    <!-- TIER 3: CONTROLLER TIER (PROGRAMMATIC API & TECHNICIAN BLUEPRINTS) -->
+    <g transform="translate(0, 330)">
+      <rect width="1280" height="175" rx="12" fill="url(#labTierGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#labShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#c2410c" />
+      <rect x="0" y="16" width="1280" height="16" fill="#c2410c" />
+      <text x="25" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="1">TIER 3: APPLICATION ROUTING &amp; REST ENDPOINTS (FLASK - PORT 5000)</text>
+
+      <!-- Route 1: REST API Endpoints -->
+      <g transform="translate(30, 45)">
+        <rect width="380" height="110" rx="8" fill="#17100b" stroke="#ea580c" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="800">routes/api.py (Server Endpoints)</text>
+        <text x="20" y="46" fill="#fed7aa" font-size="11">&#8226; POST /api/requests (Queues incoming order)</text>
+        <text x="20" y="66" fill="#fed7aa" font-size="11">&#8226; GET /api/results/&lt;test_id&gt; (Serves result JSON)</text>
+        <text x="20" y="86" fill="#fed7aa" font-size="11">&#8226; Returns HTTP 201 Created, 400, 404, 409</text>
+        <text x="20" y="102" fill="#4ade80" font-size="10" font-weight="700">&#10003; Zero Dropbox Polling Lag</text>
+      </g>
+
+      <!-- Route 2: Specimen Management & Analyzer UI -->
+      <g transform="translate(450, 45)">
+        <rect width="380" height="110" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">routes/tests.py (Technician Form)</text>
+        <text x="20" y="46" fill="#a8a29e" font-size="10.5">&#8226; View Pending Requisition Queue</text>
+        <text x="20" y="64" fill="#a8a29e" font-size="10.5">&#8226; Analyzer Numeric Measurement Intake Form</text>
+        <text x="20" y="82" fill="#a8a29e" font-size="10.5">&#8226; Enter Clinical Remarks &amp; Sample Condition</text>
+        <text x="20" y="100" fill="#a8a29e" font-size="10.5">&#8226; Mark Test as 'Completed'</text>
+      </g>
+
+      <!-- Route 3: Dashboard & Analytics -->
+      <g transform="translate(870, 45)">
+        <rect width="380" height="110" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">routes/dashboard.py</text>
+        <text x="20" y="46" fill="#a8a29e" font-size="10.5">&#8226; Real-Time Pathological Workload Counters</text>
+        <text x="20" y="64" fill="#a8a29e" font-size="10.5">&#8226; Diagnostic Turnaround Time (TAT) Metrics</text>
+        <text x="20" y="82" fill="#a8a29e" font-size="10.5">&#8226; Abnormal vs Normal Ratio Graphs</text>
+        <text x="20" y="100" fill="#a8a29e" font-size="10.5">&#8226; Daily Sample Log &amp; Rejection Rate</text>
+      </g>
+    </g>
+
+    <!-- Branching Flows Downward -->
+    <path d="M 220 505 L 220 540" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrowOrange)" />
+    <path d="M 960 505 L 960 540" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrowOrange)" />
+
+    <!-- TIER 4: BUSINESS LOGIC, VALIDATION & CLINICAL ENGINE (PARALLEL SPLIT) -->
+    <g transform="translate(0, 545)">
+      <!-- Left Box: Processing & Validation Services -->
+      <g transform="translate(0, 0)">
+        <rect width="620" height="260" rx="12" fill="url(#labTierGrad)" stroke="#ea580c" stroke-width="1.5" filter="url(#labShadow)" />
+        <rect x="0" y="0" width="620" height="32" rx="12" fill="#c2410c" />
+        <text x="20" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="0.5">TIER 4A: VALIDATION &amp; CLINICAL EVALUATION ENGINE</text>
+
+        <!-- Service Module 1 -->
+        <g transform="translate(25, 45)">
+          <rect width="270" height="195" rx="8" fill="#17100b" stroke="#ea580c" />
+          <text x="135" y="28" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="800">services/validation_service.py</text>
+          <line x1="15" y1="38" x2="255" y2="38" stroke="#241712" stroke-width="2" />
+          <text x="15" y="58" fill="#f8fafc" font-size="11" font-weight="600">&#8226; Schema Verification</text>
+          <text x="15" y="76" fill="#a8a29e" font-size="10.5">&#8226; Mandatory Field Checks</text>
+          <text x="15" y="94" fill="#a8a29e" font-size="10.5">&#8226; Supported Test Panel Type</text>
+          <text x="15" y="114" fill="#fb923c" font-size="10.5" font-weight="700">&#8226; Duplicate Test ID Check</text>
+          <text x="25" y="130" fill="#f87171" font-size="9.5">Yields HTTP 409 Conflict if found</text>
+          <text x="15" y="152" fill="#a8a29e" font-size="10.5">&#8226; Blocks Corrupted Payloads</text>
+          <text x="15" y="175" fill="#4ade80" font-size="10" font-weight="700">&#10003; Data Hygiene Enforcement</text>
+        </g>
+
+        <!-- Service Module 2 -->
+        <g transform="translate(320, 45)">
+          <rect width="275" height="195" rx="8" fill="#17100b" stroke="#ea580c" />
+          <text x="137" y="28" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="800">services/processing_service.py</text>
+          <line x1="15" y1="38" x2="260" y2="38" stroke="#241712" stroke-width="2" />
+          <text x="15" y="58" fill="#f8fafc" font-size="11" font-weight="600">&#8226; Automated Reference Evaluation</text>
+          <text x="15" y="78" fill="#a8a29e" font-size="10.5">&#8226; Compares Analyzer Measurements</text>
+          <text x="15" y="96" fill="#a8a29e" font-size="10.5">&#8226; Classifies Parameter Status:</text>
+          <text x="25" y="114" fill="#fb923c" font-size="9.5">&#8226; Low / Normal / High / Critical</text>
+          <text x="15" y="136" fill="#a8a29e" font-size="10.5">&#8226; Evaluates Overall Diagnostic Flag:</text>
+          <text x="25" y="152" fill="#4ade80" font-size="9.5">&#8226; 'Normal' vs 'Abnormal'</text>
+          <text x="15" y="175" fill="#4ade80" font-size="10" font-weight="700">&#10003; Zero Manual Lookup Errors</text>
+        </g>
+      </g>
+
+      <!-- Right Box: Persistence Layer & Medical Catalog -->
+      <g transform="translate(660, 0)">
+        <rect width="620" height="260" rx="12" fill="url(#labTierGrad)" stroke="#432c25" stroke-width="1.5" filter="url(#labShadow)" />
+        <rect x="0" y="0" width="620" height="32" rx="12" fill="#241712" stroke="#432c25" />
+        <text x="20" y="22" fill="#fb923c" font-size="12" font-weight="800" letter-spacing="0.5">TIER 4B: LABORATORY DATABASE &amp; REFERENCE CATALOG</text>
+
+        <!-- Database Engine -->
+        <g transform="translate(25, 45)">
+          <rect width="270" height="195" rx="8" fill="#17100b" stroke="#ea580c" />
+          <text x="135" y="28" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="800">SQLite (laboratory.db)</text>
+          <line x1="15" y1="38" x2="255" y2="38" stroke="#241712" stroke-width="2" />
+          <text x="15" y="60" fill="#f8fafc" font-size="11" font-weight="600">&#128273; users</text>
+          <text x="30" y="76" fill="#a8a29e" font-size="10">technician credentials, roles</text>
+          <text x="15" y="100" fill="#f8fafc" font-size="11" font-weight="600">&#128203; test_requests</text>
+          <text x="30" y="116" fill="#a8a29e" font-size="10">test_id, patient_name, status, received_via</text>
+          <text x="15" y="140" fill="#f8fafc" font-size="11" font-weight="600">&#9879; test_results</text>
+          <text x="30" y="156" fill="#a8a29e" font-size="10">measured values, units, interpretation</text>
+          <text x="15" y="178" fill="#4ade80" font-size="10" font-weight="600">&#10003; Local Isolation (No Remote SQL)</text>
+        </g>
+
+        <!-- Catalog Box -->
+        <g transform="translate(320, 45)">
+          <rect width="275" height="195" rx="8" fill="#17100b" stroke="#432c25" />
+          <text x="137" y="28" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">Pathological Range Catalog</text>
+          <line x1="15" y1="38" x2="260" y2="38" stroke="#241712" stroke-width="2" />
+          <text x="15" y="60" fill="#fed7aa" font-size="10.5" font-weight="600">Complete Blood Count (CBC):</text>
+          <text x="25" y="76" fill="#a8a29e" font-size="10">&#8226; Hemoglobin: 13.8 - 17.2 g/dL</text>
+          <text x="25" y="92" fill="#a8a29e" font-size="10">&#8226; WBC: 4,500 - 11,000 /mcL</text>
+          <text x="25" y="108" fill="#a8a29e" font-size="10">&#8226; Platelets: 150k - 450k /mcL</text>
+          <text x="15" y="130" fill="#fed7aa" font-size="10.5" font-weight="600">Pandas CSV Engine:</text>
+          <text x="25" y="146" fill="#a8a29e" font-size="10">&#8226; Compiles offline accreditation logs</text>
+          <text x="25" y="162" fill="#a8a29e" font-size="10">&#8226; Formats regulatory lab CSVs</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Downward Flow -->
+    <path d="M 640 805 L 640 835" stroke="#fb923c" stroke-width="2.5" marker-end="url(#arrowOrange)" />
+
+    <!-- TIER 5: DEPLOYMENT RUNTIME & HOSTING ENVIRONMENT -->
+    <g transform="translate(0, 840)">
+      <rect width="1280" height="160" rx="12" fill="url(#labTierGrad)" stroke="#ea580c" stroke-width="2" filter="url(#labShadow)" />
+      <rect x="0" y="0" width="1280" height="32" rx="12" fill="#c2410c" />
+      <text x="20" y="22" fill="#ffffff" font-size="12" font-weight="800" letter-spacing="0.5">TIER 5: DEPLOYMENT RUNTIME &amp; PRODUCTION HOSTING SPECIFICATION</text>
+
+      <g transform="translate(30, 45)">
+        <rect width="380" height="100" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">WSGI Production Server</text>
+        <text x="20" y="48" fill="#e2e8f0" font-size="11">&#8226; Gunicorn WSGI Gateway (<tspan fill="#fb923c">wsgi.py</tspan>)</text>
+        <text x="20" y="68" fill="#e2e8f0" font-size="11">&#8226; Asynchronous Multi-Worker Concurrency</text>
+        <text x="20" y="88" fill="#94a3b8" font-size="10.5">&#8226; Low-latency HTTP Request Lifecycle</text>
+      </g>
+
+      <g transform="translate(450, 45)">
+        <rect width="380" height="100" rx="8" fill="#17100b" stroke="#432c25" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">Analytics &amp; Data Pipeline</text>
+        <text x="20" y="48" fill="#e2e8f0" font-size="11">&#8226; Python Scientific Core: Pandas &amp; NumPy</text>
+        <text x="20" y="68" fill="#e2e8f0" font-size="11">&#8226; High-Speed Tabular Transformations</text>
+        <text x="20" y="88" fill="#94a3b8" font-size="10.5">&#8226; Deterministic Threshold Rule Execution</text>
+      </g>
+
+      <g transform="translate(870, 45)">
+        <rect width="380" height="100" rx="8" fill="#17100b" stroke="#ea580c" />
+        <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">Cloud Deployment Infrastructure</text>
+        <text x="20" y="48" fill="#e2e8f0" font-size="11">&#8226; Render Cloud PaaS (<tspan fill="#fb923c">render.yaml</tspan>)</text>
+        <text x="20" y="68" fill="#e2e8f0" font-size="11">&#8226; Environment: <tspan fill="#c084fc">LAB_API_KEY</tspan> Secret Injection</text>
+        <text x="20" y="88" fill="#4ade80" font-size="10.5" font-weight="700">&#10003; 100% Standalone Web Service on Port 5000</text>
+      </g>
+    </g>
+
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(700, 1125)" text-anchor="middle">
+    <text fill="#78716c" font-size="11.5">
+      Diagnostic Laboratory Processing Portal Architecture | Python Flask 3.10+ | Clinical Evaluation Engine | REST API Server (Port 5000)
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Patient Details: {{ patient.patient_name }}</h1>
+    <a href="{{ url_for('patients.index') }}" class="btn btn-outline-secondary">Back to Patients</a>
+</div>
+
+<div class="row">
+    <!-- Patient Info -->
+    <div class="col-md-5 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i> Patient Information</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-borderless mb-0">
+                    <tbody>
+                        <tr><th class="w-40 text-end text-muted">Patient ID:</th><td><strong>{{ patient.patient_id }}</strong></td></tr>
+                        <tr><th class="text-end text-muted">Full Name:</th><td>{{ patient.patient_name }}</td></tr>
+                        <tr><th class="text-end text-muted">Age / Gender:</th><td>{{ patient.age }} / {{ patient.gender }}</td></tr>
+                        <tr><th class="text-end text-muted">Date of Birth:</th><td>{{ patient.date_of_birth }}</td></tr>
+                        <tr><th class="text-end text-muted">Phone:</th><td>{{ patient.phone }}</td></tr>
+                        <tr><th class="text-end text-muted">Email:</th><td>{{ patient.email }}</td></tr>
+                        <tr><th class="text-end text-muted">Address:</th><td>{{ patient.address }}</td></tr>
+                        <tr><th class="text-end text-muted">Emergency:</th><td>{{ patient.emergency_contact }}</td></tr>
+                        <tr><th class="text-end text-muted border-top pt-3">Doctor:</th><td class="border-top pt-3">{{ patient.doctor }}</td></tr>
+                        <tr><th class="text-end text-muted">Department:</th><td>{{ patient.department }}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test History -->
+    <div class="col-md-7 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i> Test History</h5>
+                <a href="{{ url_for('test_requests.create') }}?patient_id={{ patient.patient_id }}" class="btn btn-sm btn-primary">New Test</a>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Test ID</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for test in test_history %}
+                            <tr>
+                                <td>{{ test.test_id }}</td>
+                                <td>{{ test.test_type }}</td>
+                                <td>{{ test.requested_date }}</td>
+                                <td>
+                                    <span class="badge {% if test.status == 'Pending' %}bg-secondary{% elif test.status == 'Completed' %}bg-success{% elif test.status == 'Abnormal' %}bg-danger{% else %}bg-info{% endif %}">
+                                        {{ test.status }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('test_requests.details', test_id=test.test_id) }}" class="btn btn-sm btn-outline-info">Details</a>
+                                    {% if test.status in ['Completed', 'Abnormal'] %}
+                                    <a href="{{ url_for('results.details', test_id=test.test_id) }}" class="btn btn-sm btn-success">Result</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr><td colspan="5" class="text-center py-4">No test requests found for this patient.</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

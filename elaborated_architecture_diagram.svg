@@ -1,0 +1,528 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="100%" height="100%" style="background-color: #0f172a; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0b0f19" />
+    </linearGradient>
+
+    <linearGradient id="hospCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="labCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="hospAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="labAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <linearGradient id="restBridgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="50%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <!-- Filters for Glow & Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="glowOrange" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Markers -->
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#fb923c" />
+    </marker>
+
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#a855f7" />
+    </marker>
+
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#4ade80" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1100" fill="url(#bgGrad)" />
+
+  <!-- Grid Pattern Overlay -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1600" height="1100" fill="url(#grid)" />
+  </g>
+
+  <!-- ==================== HEADER ==================== -->
+  <g transform="translate(800, 50)" text-anchor="middle">
+    <rect x="-450" y="-30" width="900" height="60" rx="30" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    <text y="8" fill="#f8fafc" font-size="22" font-weight="700" letter-spacing="1">
+      HEALTHCARE SYSTEM ELABORATED MICROSERVICES ARCHITECTURE
+    </text>
+    <text y="48" fill="#94a3b8" font-size="13" font-weight="500">
+      Decoupled Dual-Portal Ecosystem with Stateless REST API Bridge (No Third-Party Intermediaries)
+    </text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- LEFT DOMAIN: HOSPITAL PATIENT & TEST MANAGEMENT PORTAL (PORT 5001)        -->
+  <!-- ========================================================================= -->
+  <g transform="translate(60, 110)">
+    <!-- Container Box -->
+    <rect width="640" height="930" rx="16" fill="#131c2e" stroke="#0284c7" stroke-width="2" filter="url(#shadow)" />
+    
+    <!-- Header Badge -->
+    <rect x="0" y="0" width="640" height="55" rx="16" fill="url(#hospAccent)" />
+    <rect x="0" y="35" width="640" height="20" fill="url(#hospAccent)" />
+    <text x="25" y="34" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="0.5">
+      HOSPITAL CLINICAL PORTAL [PORT 5001]
+    </text>
+    <text x="615" y="34" text-anchor="end" fill="#e0f2fe" font-size="12" font-weight="600">
+      DOMAIN: CLINICAL CARE &amp; ORDERING
+    </text>
+
+    <!-- 1. ACTORS LAYER -->
+    <g transform="translate(25, 75)">
+      <rect width="590" height="90" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="0.5">ACTORS &amp; ACCESS CLIENTS</text>
+      
+      <!-- Doctor Icon/Card -->
+      <g transform="translate(20, 35)">
+        <rect width="260" height="42" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1" />
+        <circle cx="25" cy="21" r="12" fill="#0369a1" />
+        <text x="25" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Dr</text>
+        <text x="48" y="20" fill="#f8fafc" font-size="12" font-weight="600">Physicians / Clinicians</text>
+        <text x="48" y="34" fill="#94a3b8" font-size="10">Order Labs &amp; Review Diagnoses</text>
+      </g>
+
+      <!-- Staff Icon/Card -->
+      <g transform="translate(305, 35)">
+        <rect width="265" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+        <circle cx="25" cy="21" r="12" fill="#475569" />
+        <text x="25" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">St</text>
+        <text x="48" y="20" fill="#f8fafc" font-size="12" font-weight="600">Hospital Desk / Nursing</text>
+        <text x="48" y="34" fill="#94a3b8" font-size="10">Patient Intake &amp; Result Sync</text>
+      </g>
+    </g>
+
+    <!-- Arrow down -->
+    <path d="M 320 165 L 320 185" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowCyan)" />
+
+    <!-- 2. PRESENTATION TIER (UI / VIEW ENGINE) -->
+    <g transform="translate(25, 190)">
+      <rect width="590" height="110" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="20" y="24" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="0.5">PRESENTATION TIER (RESPONSIVE WEB CLIENT)</text>
+      
+      <g transform="translate(20, 35)">
+        <rect width="170" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Bootstrap 5 &amp; CSS3</text>
+        <text x="85" y="42" text-anchor="middle" fill="#64748b" font-size="9.5">Adaptive Layouts &amp; Badges</text>
+      </g>
+
+      <g transform="translate(210, 35)">
+        <rect width="170" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Jinja2 Dynamic Views</text>
+        <text x="85" y="42" text-anchor="middle" fill="#64748b" font-size="9.5">Patient &amp; Test Dashboards</text>
+      </g>
+
+      <g transform="translate(400, 35)">
+        <rect width="170" height="60" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">JavaScript Fetch / Form</text>
+        <text x="85" y="42" text-anchor="middle" fill="#64748b" font-size="9.5">Synchronous UI Triggers</text>
+      </g>
+    </g>
+
+    <!-- Arrow down -->
+    <path d="M 320 300 L 320 320" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowCyan)" />
+
+    <!-- 3. APPLICATION & CONTROLLER TIER -->
+    <g transform="translate(25, 325)">
+      <rect width="590" height="150" rx="10" fill="#1e293b" stroke="#0284c7" stroke-width="1.5" />
+      <text x="20" y="24" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="0.5">CONTROLLER &amp; ROUTING TIER (FLASK BLUEPRINTS)</text>
+      
+      <!-- Blueprints sub-grid -->
+      <g transform="translate(20, 36)">
+        <rect width="130" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="65" y="22" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">routes/auth.py</text>
+        <text x="65" y="42" text-anchor="middle" fill="#94a3b8" font-size="9.5">Session Login</text>
+        <text x="65" y="58" text-anchor="middle" fill="#94a3b8" font-size="9.5">PBKDF2 Hashing</text>
+        <text x="65" y="74" text-anchor="middle" fill="#94a3b8" font-size="9.5">Role Authorization</text>
+      </g>
+
+      <g transform="translate(160, 36)">
+        <rect width="130" height="95" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="65" y="22" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">patients.py</text>
+        <text x="65" y="42" text-anchor="middle" fill="#94a3b8" font-size="9.5">Patient Intake</text>
+        <text x="65" y="58" text-anchor="middle" fill="#94a3b8" font-size="9.5">Demographics Edit</text>
+        <text x="65" y="74" text-anchor="middle" fill="#94a3b8" font-size="9.5">History Logs</text>
+      </g>
+
+      <g transform="translate(300, 36)">
+        <rect width="130" height="95" rx="6" fill="#0f172a" stroke="#0284c7" />
+        <text x="65" y="22" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">test_requests.py</text>
+        <text x="65" y="42" text-anchor="middle" fill="#94a3b8" font-size="9.5">Requisition Form</text>
+        <text x="65" y="58" text-anchor="middle" fill="#94a3b8" font-size="9.5">Priority Selection</text>
+        <text x="65" y="74" text-anchor="middle" fill="#38bdf8" font-size="9.5">REST Dispatch Call</text>
+      </g>
+
+      <g transform="translate(440, 36)">
+        <rect width="130" height="95" rx="6" fill="#0f172a" stroke="#0284c7" />
+        <text x="65" y="22" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">results.py</text>
+        <text x="65" y="42" text-anchor="middle" fill="#94a3b8" font-size="9.5">Clinical Review</text>
+        <text x="65" y="58" text-anchor="middle" fill="#94a3b8" font-size="9.5">Abnormal Badging</text>
+        <text x="65" y="74" text-anchor="middle" fill="#4ade80" font-size="9.5">Sync Ingestion</text>
+      </g>
+    </g>
+
+    <!-- Branching arrows from Controller -->
+    <path d="M 180 475 L 180 515" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowCyan)" />
+    <path d="M 460 475 L 460 515" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowCyan)" />
+
+    <!-- 4. SERVICES LAYER & PERSISTENCE TIER (SPLIT) -->
+    <!-- Left: Local Database -->
+    <g transform="translate(25, 520)">
+      <rect width="275" height="235" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="137" y="26" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">HOSPITAL DATABASE TIER</text>
+      <rect x="20" y="38" width="235" height="180" rx="6" fill="#0f172a" stroke="#334155" />
+      
+      <!-- Database cylinder icon representation -->
+      <text x="137" y="65" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="800">SQLite (hospital.db)</text>
+      <line x1="35" y1="75" x2="240" y2="75" stroke="#1e293b" stroke-width="2" />
+      
+      <text x="35" y="98" fill="#e2e8f0" font-size="11" font-weight="600">&#8226; users table (Auth &amp; Roles)</text>
+      <text x="35" y="118" fill="#e2e8f0" font-size="11" font-weight="600">&#8226; patients table (Demographics)</text>
+      <text x="35" y="138" fill="#e2e8f0" font-size="11" font-weight="600">&#8226; test_requests table (Local Orders)</text>
+      <text x="35" y="158" fill="#e2e8f0" font-size="11" font-weight="600">&#8226; test_results table (Received)</text>
+      <text x="35" y="195" fill="#94a3b8" font-size="10" font-style="italic">Strict Data Sovereignty (Isolated)</text>
+    </g>
+
+    <!-- Right: REST Integration Service -->
+    <g transform="translate(325, 520)">
+      <rect width="290" height="235" rx="10" fill="#1e293b" stroke="#0284c7" stroke-width="1.5" />
+      <text x="145" y="26" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">REST API INTEGRATION CLIENT</text>
+      
+      <g transform="translate(15, 38)">
+        <rect width="260" height="85" rx="6" fill="#0f172a" stroke="#0284c7" />
+        <text x="15" y="24" fill="#38bdf8" font-size="11" font-weight="700">lab_api_service.py</text>
+        <text x="15" y="44" fill="#94a3b8" font-size="10">&#8226; Formats Order JSON Schema</text>
+        <text x="15" y="60" fill="#94a3b8" font-size="10">&#8226; Injects X-API-Key Header</text>
+        <text x="15" y="76" fill="#94a3b8" font-size="10">&#8226; HTTP POST requests.post()</text>
+      </g>
+
+      <g transform="translate(15, 133)">
+        <rect width="260" height="85" rx="6" fill="#0f172a" stroke="#0284c7" />
+        <text x="15" y="24" fill="#38bdf8" font-size="11" font-weight="700">result_sync_service.py</text>
+        <text x="15" y="44" fill="#94a3b8" font-size="10">&#8226; Pulls pending test IDs</text>
+        <text x="15" y="60" fill="#94a3b8" font-size="10">&#8226; HTTP GET requests.get()</text>
+        <text x="15" y="76" fill="#94a3b8" font-size="10">&#8226; Atomic Sync to hospital.db</text>
+      </g>
+    </g>
+
+    <!-- 5. INFRASTRUCTURE & RUNTIME ENVIRONMENT -->
+    <g transform="translate(25, 775)">
+      <rect width="590" height="130" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="20" y="25" fill="#38bdf8" font-size="12" font-weight="700">INFRASTRUCTURE &amp; RUNTIME STACK</text>
+      
+      <g transform="translate(20, 38)">
+        <rect width="170" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">WSGI Web Server</text>
+        <text x="85" y="45" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">Gunicorn (wsgi.py)</text>
+        <text x="85" y="62" text-anchor="middle" fill="#64748b" font-size="9.5">Multi-worker process</text>
+      </g>
+
+      <g transform="translate(210, 38)">
+        <rect width="170" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">Environment &amp; Secrets</text>
+        <text x="85" y="45" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">python-dotenv</text>
+        <text x="85" y="62" text-anchor="middle" fill="#64748b" font-size="9.5">LAB_API_KEY / URL</text>
+      </g>
+
+      <g transform="translate(400, 38)">
+        <rect width="170" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">Deployment Target</text>
+        <text x="85" y="45" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">Render Cloud PaaS</text>
+        <text x="85" y="62" text-anchor="middle" fill="#64748b" font-size="9.5">render.yaml Spec</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- MIDDLE REST API BRIDGE (SYNCHRONOUS COMMUNICATION CHANNEL)                -->
+  <!-- ========================================================================= -->
+  <g transform="translate(715, 230)">
+    <rect width="170" height="690" rx="16" fill="url(#restBridgeGrad)" stroke="#4338ca" stroke-width="2" filter="url(#shadow)" />
+    
+    <text x="85" y="32" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="800" letter-spacing="1">
+      REST API BRIDGE
+    </text>
+    <text x="85" y="50" text-anchor="middle" fill="#94a3b8" font-size="10">
+      Direct HTTP Protocols
+    </text>
+
+    <!-- Key Badge -->
+    <rect x="15" y="68" width="140" height="48" rx="8" fill="#0f172a" stroke="#a855f7" stroke-width="1.5" />
+    <text x="85" y="88" text-anchor="middle" fill="#f3e8ff" font-size="10.5" font-weight="700">SECURITY TOKEN</text>
+    <text x="85" y="104" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">X-API-Key Header</text>
+
+    <!-- Channel 1: POST Requests -->
+    <g transform="translate(12, 160)">
+      <rect width="146" height="155" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="73" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="800">1. ORDER REQUISITION</text>
+      <text x="73" y="44" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">POST /api/requests</text>
+      <line x1="15" y1="52" x2="131" y2="52" stroke="#1e293b" />
+      <text x="15" y="70" fill="#94a3b8" font-size="9.5">&#8226; test_id (Unique)</text>
+      <text x="15" y="86" fill="#94a3b8" font-size="9.5">&#8226; patient_id</text>
+      <text x="15" y="102" fill="#94a3b8" font-size="9.5">&#8226; test_type</text>
+      <text x="15" y="118" fill="#94a3b8" font-size="9.5">&#8226; priority (Stat/Urg)</text>
+      <text x="73" y="142" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">&lt;201 Created&gt;</text>
+    </g>
+
+    <!-- Channel 2: GET Results -->
+    <g transform="translate(12, 360)">
+      <rect width="146" height="165" rx="8" fill="#0f172a" stroke="#fb923c" stroke-width="1.5" />
+      <text x="73" y="24" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="800">2. RESULT RETRIEVAL</text>
+      <text x="73" y="44" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">GET /api/results/&lt;id&gt;</text>
+      <line x1="15" y1="52" x2="131" y2="52" stroke="#1e293b" />
+      <text x="15" y="70" fill="#94a3b8" font-size="9.5">&#8226; Ingests Measurements</text>
+      <text x="15" y="86" fill="#94a3b8" font-size="9.5">&#8226; Units &amp; Normal Bounds</text>
+      <text x="15" y="102" fill="#94a3b8" font-size="9.5">&#8226; Interpretation Flag</text>
+      <text x="15" y="118" fill="#94a3b8" font-size="9.5">&#8226; Tech Clinical Notes</text>
+      <text x="73" y="142" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">&lt;200 OK / 404 Pend&gt;</text>
+    </g>
+
+    <!-- Synchronous Highlights -->
+    <g transform="translate(15, 555)">
+      <rect width="140" height="110" rx="8" fill="#0f172a" stroke="#6366f1" />
+      <text x="70" y="22" text-anchor="middle" fill="#a5b4fc" font-size="10.5" font-weight="700">BENEFITS VS CLOUD</text>
+      <text x="10" y="44" fill="#94a3b8" font-size="9">&#8226; No Token Expiry</text>
+      <text x="10" y="60" fill="#94a3b8" font-size="9">&#8226; Zero Polling Lag</text>
+      <text x="10" y="76" fill="#94a3b8" font-size="9">&#8226; No DNS Failures</text>
+      <text x="10" y="94" fill="#4ade80" font-size="9" font-weight="600">&#10003; 100% Free &amp; Direct</text>
+    </g>
+  </g>
+
+  <!-- Connective Arrows between Hospital and Bridge -->
+  <!-- POST Request to Bridge -->
+  <path d="M 615 570 L 715 440" stroke="#38bdf8" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowCyan)" />
+  <!-- GET Results from Bridge -->
+  <path d="M 715 650 L 615 660" stroke="#4ade80" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowGreen)" />
+
+
+  <!-- ========================================================================= -->
+  <!-- RIGHT DOMAIN: DIAGNOSTIC LABORATORY PROCESSING PORTAL (PORT 5000)        -->
+  <!-- ========================================================================= -->
+  <g transform="translate(900, 110)">
+    <!-- Container Box -->
+    <rect width="640" height="930" rx="16" fill="#1b1715" stroke="#ea580c" stroke-width="2" filter="url(#shadow)" />
+    
+    <!-- Header Badge -->
+    <rect x="0" y="0" width="640" height="55" rx="16" fill="url(#labAccent)" />
+    <rect x="0" y="35" width="640" height="20" fill="url(#labAccent)" />
+    <text x="25" y="34" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="0.5">
+      DIAGNOSTIC LABORATORY PORTAL [PORT 5000]
+    </text>
+    <text x="615" y="34" text-anchor="end" fill="#ffedd5" font-size="12" font-weight="600">
+      DOMAIN: SPECIMEN PROCESSING &amp; ANALYZER
+    </text>
+
+    <!-- 1. ACTORS & SECURITY INGRESS GATE -->
+    <g transform="translate(25, 75)">
+      <rect width="590" height="90" rx="10" fill="#29201d" stroke="#432c25" stroke-width="1.5" />
+      <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700" letter-spacing="0.5">SECURITY INGRESS &amp; ACTORS</text>
+      
+      <!-- Technician -->
+      <g transform="translate(20, 35)">
+        <rect width="260" height="42" rx="6" fill="#120c0a" stroke="#ea580c" stroke-width="1" />
+        <circle cx="25" cy="21" r="12" fill="#c2410c" />
+        <text x="25" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">LT</text>
+        <text x="48" y="20" fill="#f8fafc" font-size="12" font-weight="600">Laboratory Technicians</text>
+        <text x="48" y="34" fill="#a8a29e" font-size="10">Specimen Testing &amp; Data Entry</text>
+      </g>
+
+      <!-- Security Decorator Gateway -->
+      <g transform="translate(305, 35)">
+        <rect width="265" height="42" rx="6" fill="#120c0a" stroke="#a855f7" stroke-width="1.5" />
+        <circle cx="25" cy="21" r="12" fill="#7e22ce" />
+        <text x="25" y="26" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">&#128274;</text>
+        <text x="48" y="20" fill="#f8fafc" font-size="12" font-weight="700">@require_api_key Gate</text>
+        <text x="48" y="34" fill="#c084fc" font-size="10">Validates Inbound Hospital Calls</text>
+      </g>
+    </g>
+
+    <!-- Arrow down from Ingress to Controller -->
+    <path d="M 320 165 L 320 185" stroke="#fb923c" stroke-width="2" marker-end="url(#arrowOrange)" />
+
+    <!-- 2. APPLICATION ROUTING & CONTROLLER TIER -->
+    <g transform="translate(25, 190)">
+      <rect width="590" height="110" rx="10" fill="#29201d" stroke="#ea580c" stroke-width="1.5" />
+      <text x="20" y="24" fill="#fb923c" font-size="12" font-weight="700" letter-spacing="0.5">CONTROLLER &amp; API ENDPOINTS (FLASK ROUTER)</text>
+      
+      <g transform="translate(20, 35)">
+        <rect width="170" height="60" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#fed7aa" font-size="11" font-weight="700">routes/api.py</text>
+        <text x="85" y="42" text-anchor="middle" fill="#a8a29e" font-size="9.5">POST /api/requests</text>
+        <text x="85" y="54" text-anchor="middle" fill="#a8a29e" font-size="9.5">GET /api/results/&lt;id&gt;</text>
+      </g>
+
+      <g transform="translate(210, 35)">
+        <rect width="170" height="60" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#fed7aa" font-size="11" font-weight="700">routes/tests.py</text>
+        <text x="85" y="42" text-anchor="middle" fill="#a8a29e" font-size="9.5">Specimen Processing UI</text>
+        <text x="85" y="54" text-anchor="middle" fill="#a8a29e" font-size="9.5">Measurement Entry Form</text>
+      </g>
+
+      <g transform="translate(400, 35)">
+        <rect width="170" height="60" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#fed7aa" font-size="11" font-weight="700">routes/dashboard.py</text>
+        <text x="85" y="42" text-anchor="middle" fill="#a8a29e" font-size="9.5">Pending vs Completed</text>
+        <text x="85" y="54" text-anchor="middle" fill="#a8a29e" font-size="9.5">Analytical Throughput</text>
+      </g>
+    </g>
+
+    <!-- Arrow down -->
+    <path d="M 320 300 L 320 320" stroke="#fb923c" stroke-width="2" marker-end="url(#arrowOrange)" />
+
+    <!-- 3. BUSINESS LOGIC & PROCESSING TIER -->
+    <g transform="translate(25, 325)">
+      <rect width="590" height="150" rx="10" fill="#29201d" stroke="#ea580c" stroke-width="1.5" />
+      <text x="20" y="24" fill="#fb923c" font-size="12" font-weight="700" letter-spacing="0.5">BUSINESS LOGIC &amp; CLINICAL PROCESSING ENGINE</text>
+      
+      <!-- Validation Service -->
+      <g transform="translate(20, 36)">
+        <rect width="170" height="95" rx="6" fill="#120c0a" stroke="#ea580c" />
+        <text x="85" y="22" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">validation_service.py</text>
+        <text x="15" y="42" fill="#a8a29e" font-size="9.5">&#8226; Enforces JSON Schema</text>
+        <text x="15" y="58" fill="#a8a29e" font-size="9.5">&#8226; Validates Test Types</text>
+        <text x="15" y="74" fill="#a8a29e" font-size="9.5">&#8226; Deduplicates Test ID</text>
+        <text x="15" y="88" fill="#4ade80" font-size="9.5">&#8226; Yields 409 Conflict</text>
+      </g>
+
+      <!-- Processing Engine -->
+      <g transform="translate(210, 36)">
+        <rect width="170" height="95" rx="6" fill="#120c0a" stroke="#ea580c" />
+        <text x="85" y="22" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">processing_service.py</text>
+        <text x="15" y="42" fill="#a8a29e" font-size="9.5">&#8226; Reference Interval Rule</text>
+        <text x="15" y="58" fill="#a8a29e" font-size="9.5">&#8226; Bounds Check (Low/High)</text>
+        <text x="15" y="74" fill="#a8a29e" font-size="9.5">&#8226; Diagnostic Classify</text>
+        <text x="15" y="88" fill="#fb923c" font-size="9.5">&#8226; Normal vs Abnormal</text>
+      </g>
+
+      <!-- CSV Audit Engine -->
+      <g transform="translate(400, 36)">
+        <rect width="170" height="95" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="22" text-anchor="middle" fill="#fed7aa" font-size="11" font-weight="700">Pandas CSV Engine</text>
+        <text x="15" y="42" fill="#a8a29e" font-size="9.5">&#8226; Dataframe Pipeline</text>
+        <text x="15" y="58" fill="#a8a29e" font-size="9.5">&#8226; Compliance Export</text>
+        <text x="15" y="74" fill="#a8a29e" font-size="9.5">&#8226; Offline Archive Sync</text>
+        <text x="15" y="88" fill="#a8a29e" font-size="9.5">&#8226; Lab Audit Trails</text>
+      </g>
+    </g>
+
+    <!-- Branching arrows from Processing Engine -->
+    <path d="M 180 475 L 180 515" stroke="#fb923c" stroke-width="2" marker-end="url(#arrowOrange)" />
+    <path d="M 460 475 L 460 515" stroke="#fb923c" stroke-width="2" marker-end="url(#arrowOrange)" />
+
+    <!-- 4. PERSISTENCE & DATA STORAGE TIER (SPLIT) -->
+    <!-- Left: Laboratory Database -->
+    <g transform="translate(25, 520)">
+      <rect width="275" height="235" rx="10" fill="#29201d" stroke="#432c25" stroke-width="1.5" />
+      <text x="137" y="26" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">LAB DATABASE TIER</text>
+      <rect x="20" y="38" width="235" height="180" rx="6" fill="#120c0a" stroke="#432c25" />
+      
+      <text x="137" y="65" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="800">SQLite (laboratory.db)</text>
+      <line x1="35" y1="75" x2="240" y2="75" stroke="#29201d" stroke-width="2" />
+      
+      <text x="35" y="98" fill="#fed7aa" font-size="11" font-weight="600">&#8226; users (Technicians/Staff)</text>
+      <text x="35" y="118" fill="#fed7aa" font-size="11" font-weight="600">&#8226; test_requests (Pending/Active)</text>
+      <text x="35" y="138" fill="#fed7aa" font-size="11" font-weight="600">&#8226; test_results (Finalized)</text>
+      <text x="35" y="158" fill="#fed7aa" font-size="11" font-weight="600">&#8226; audit_logs (Time &amp; User)</text>
+      <text x="35" y="195" fill="#a8a29e" font-size="10" font-style="italic">Independent Schema Isolation</text>
+    </g>
+
+    <!-- Right: Reference Range Catalog -->
+    <g transform="translate(325, 520)">
+      <rect width="290" height="235" rx="10" fill="#29201d" stroke="#ea580c" stroke-width="1.5" />
+      <text x="145" y="26" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">CLINICAL REFERENCE CATALOG</text>
+      
+      <g transform="translate(15, 38)">
+        <rect width="260" height="85" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="15" y="22" fill="#fb923c" font-size="11" font-weight="700">CBC Panel Reference Bounds</text>
+        <text x="15" y="40" fill="#a8a29e" font-size="9.5">&#8226; Hemoglobin: 13.8 - 17.2 g/dL</text>
+        <text x="15" y="55" fill="#a8a29e" font-size="9.5">&#8226; WBC: 4,500 - 11,000 /mcL</text>
+        <text x="15" y="70" fill="#a8a29e" font-size="9.5">&#8226; Platelets: 150k - 450k /mcL</text>
+      </g>
+
+      <g transform="translate(15, 133)">
+        <rect width="260" height="85" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="15" y="22" fill="#fb923c" font-size="11" font-weight="700">Metabolic &amp; Lipid Panels</text>
+        <text x="15" y="40" fill="#a8a29e" font-size="9.5">&#8226; Fasting Glucose: 70 - 99 mg/dL</text>
+        <text x="15" y="55" fill="#a8a29e" font-size="9.5">&#8226; Total Cholesterol: &lt; 200 mg/dL</text>
+        <text x="15" y="70" fill="#a8a29e" font-size="9.5">&#8226; Triglycerides: &lt; 150 mg/dL</text>
+      </g>
+    </g>
+
+    <!-- 5. INFRASTRUCTURE & RUNTIME ENVIRONMENT -->
+    <g transform="translate(25, 775)">
+      <rect width="590" height="130" rx="10" fill="#29201d" stroke="#432c25" stroke-width="1.5" />
+      <text x="20" y="25" fill="#fb923c" font-size="12" font-weight="700">INFRASTRUCTURE &amp; RUNTIME STACK</text>
+      
+      <g transform="translate(20, 38)">
+        <rect width="170" height="75" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">WSGI Web Server</text>
+        <text x="85" y="45" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">Gunicorn (wsgi.py)</text>
+        <text x="85" y="62" text-anchor="middle" fill="#78716c" font-size="9.5">Asynchronous Workers</text>
+      </g>
+
+      <g transform="translate(210, 38)">
+        <rect width="170" height="75" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">Analytical Libraries</text>
+        <text x="85" y="45" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">Pandas &amp; NumPy</text>
+        <text x="85" y="62" text-anchor="middle" fill="#78716c" font-size="9.5">Dataframe Transformations</text>
+      </g>
+
+      <g transform="translate(400, 38)">
+        <rect width="170" height="75" rx="6" fill="#120c0a" stroke="#432c25" />
+        <text x="85" y="25" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="600">Deployment Target</text>
+        <text x="85" y="45" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">Render Cloud PaaS</text>
+        <text x="85" y="62" text-anchor="middle" fill="#78716c" font-size="9.5">Standalone Web Service</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Connective Arrows between Bridge and Lab -->
+  <!-- POST Request into Lab API -->
+  <path d="M 865 440 L 965 250" stroke="#38bdf8" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowCyan)" />
+  <!-- GET Result response from Lab API -->
+  <path d="M 965 270 L 865 650" stroke="#4ade80" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowGreen)" />
+
+  <!-- ==================== FOOTER ==================== -->
+  <g transform="translate(800, 1070)" text-anchor="middle">
+    <text fill="#64748b" font-size="12">
+      &#128279; Microservices Interoperability: Both web portals operate in complete database isolation, exchanging clinical transactions via authenticated HTTP JSON payloads.
+    </text>
+  </g>
+</svg>

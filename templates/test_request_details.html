@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Test Request Details: {{ request.test_id }}</h1>
+    <a href="{{ url_for('test_requests.index') }}" class="btn btn-outline-secondary">Back to Requests</a>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-file-medical me-2"></i> Request Information</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-borderless mb-0">
+                    <tbody>
+                        <tr><th class="w-40 text-end text-muted">Test ID:</th><td><strong>{{ request.test_id }}</strong></td></tr>
+                        <tr><th class="text-end text-muted">Test Type:</th><td>{{ request.test_type }}</td></tr>
+                        <tr><th class="text-end text-muted">Sample Type:</th><td>{{ request.sample_type }}</td></tr>
+                        <tr><th class="text-end text-muted">Priority:</th>
+                            <td>
+                                {% if request.priority == 'Urgent' %}
+                                <span class="badge bg-danger">Urgent</span>
+                                {% else %}
+                                <span class="badge bg-secondary">Normal</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr><th class="text-end text-muted">Requested Date:</th><td>{{ request.requested_date }}</td></tr>
+                        <tr><th class="text-end text-muted border-top pt-3">Status:</th>
+                            <td class="border-top pt-3">
+                                <span class="badge {% if request.status == 'Pending' %}bg-secondary{% elif request.status == 'Completed' %}bg-success{% elif request.status == 'Abnormal' %}bg-danger{% else %}bg-info{% endif %} fs-6">
+                                    {{ request.status }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr><th class="text-end text-muted">Transmission:</th>
+                            <td>
+                                {% if request.dropbox_file_path == 'REST_API' %}
+                                <span class="badge bg-primary"><i class="bi bi-cloud-arrow-up me-1"></i> REST API</span>
+                                {% else %}
+                                <small class="text-break text-muted">{{ request.dropbox_file_path or 'REST API' }}</small>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-person me-2"></i> Patient Snapshot</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-borderless mb-0">
+                    <tbody>
+                        <tr><th class="w-40 text-end text-muted">Patient ID:</th>
+                            <td><a href="{{ url_for('patients.details', patient_id=request.patient_id) }}">{{ request.patient_id }}</a></td>
+                        </tr>
+                        <tr><th class="text-end text-muted">Name:</th><td>{{ request.patient_name }}</td></tr>
+                        <tr><th class="text-end text-muted">Age / Gender:</th><td>{{ request.age }} / {{ request.gender }}</td></tr>
+                        <tr><th class="text-end text-muted">Doctor:</th><td>{{ request.doctor }}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0"><i class="bi bi-info-square me-2"></i> Instructions</h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-0">{{ request.instructions or 'No special instructions provided.' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if request.status in ['Completed', 'Abnormal'] %}
+<div class="mt-2 text-center">
+    <a href="{{ url_for('results.details', test_id=request.test_id) }}" class="btn btn-success btn-lg">
+        <i class="bi bi-file-earmark-text me-2"></i> View Laboratory Result
+    </a>
+</div>
+{% else %}
+<div class="mt-2 text-center">
+    <form action="{{ url_for('test_requests.fetch_result', test_id=request.test_id) }}" method="POST" class="d-inline">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-arrow-repeat me-2"></i> Check Laboratory Result (REST API)
+        </button>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

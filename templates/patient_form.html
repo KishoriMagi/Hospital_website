@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Register Patient</h1>
+    <a href="{{ url_for('patients.index') }}" class="btn btn-outline-secondary">Back to Patients</a>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4">
+                <form method="POST">
+                    <h5 class="mb-3 text-primary border-bottom pb-2">Basic Information</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="patient_id" class="form-label">Patient ID *</label>
+                            <input type="text" class="form-control" id="patient_id" name="patient_id" required placeholder="e.g., P1001">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="patient_name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="patient_name" name="patient_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" name="age">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" id="gender" name="gender">
+                                <option value="">Select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="date_of_birth" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                        </div>
+                    </div>
+
+                    <h5 class="mb-3 mt-4 text-primary border-bottom pb-2">Contact Details</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="2"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emergency_contact" class="form-label">Emergency Contact (Name & Phone)</label>
+                        <input type="text" class="form-control" id="emergency_contact" name="emergency_contact">
+                    </div>
+
+                    <h5 class="mb-3 mt-4 text-primary border-bottom pb-2">Hospital Information</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="doctor" class="form-label">Assigned Doctor</label>
+                            <input type="text" class="form-control" id="doctor" name="doctor">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="department" name="department">
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Register Patient</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

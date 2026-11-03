@@ -1,0 +1,373 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1320" width="2400" height="1320" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--lab-accent:#107C41;--api-accent:#E67E22;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arr-hosp" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#0078D4" />
+  </marker>
+  <marker id="arr-lab" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#107C41" />
+  </marker>
+  <marker id="arr-api" markerWidth="8" markerHeight="5" refX="8" refY="2.5" orient="auto-start-reverse">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#E67E22" />
+  </marker>
+</defs>
+
+<!-- System Boundaries -->
+<rect x="25" y="15" width="1070" height="1285" rx="10" ry="10" fill="#141922" stroke="#0078D4" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.85" />
+<text x="45" y="45" font-size="16" font-weight="700" fill="#0078D4" letter-spacing="1">HOSPITAL PATIENT &amp; TEST PORTAL (Port 5001)</text>
+
+<rect x="1115" y="15" width="1260" height="1285" rx="10" ry="10" fill="#142119" stroke="#107C41" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.85" />
+<text x="1135" y="45" font-size="16" font-weight="700" fill="#107C41" letter-spacing="1">DIAGNOSTIC LABORATORY PROCESSING PORTAL (Port 5000)</text>
+
+<!-- Lifelines -->
+<!-- Hospital -->
+<line class="lifeline" x1="90" y1="120" x2="90" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="270" y1="100" x2="270" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="470" y1="100" x2="470" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="680" y1="100" x2="680" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="880" y1="100" x2="880" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="1030" y1="100" x2="1030" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+
+<!-- Laboratory -->
+<line class="lifeline" x1="1200" y1="100" x2="1200" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="1410" y1="100" x2="1410" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="1620" y1="100" x2="1620" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="1840" y1="100" x2="1840" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="2050" y1="100" x2="2050" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+<line class="lifeline" x1="2290" y1="120" x2="2290" y2="1270" stroke="var(--_line)" stroke-width="0.75" stroke-dasharray="6 4" />
+
+<!-- Participant Headers -->
+<!-- Hospital Headers -->
+<g class="actor">
+  <g transform="translate(72,62) scale(1.5)">
+    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="none" stroke="#0078D4" stroke-width="0.7" />
+    <path d="M15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7C13.6569 7 15 8.34315 15 10Z" fill="none" stroke="#0078D4" stroke-width="0.7" />
+    <path d="M5.62842 18.3563C7.08963 17.0398 9.39997 16 12 16C14.6 16 16.9104 17.0398 18.3716 18.3563" fill="none" stroke="#0078D4" stroke-width="0.7" />
+  </g>
+  <text x="90" y="114" font-size="12" text-anchor="middle" font-weight="600" fill="#0078D4">Hospital Clinician</text>
+</g>
+
+<g class="actor">
+  <rect x="195" y="60" width="150" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#0078D4" stroke-width="1" />
+  <text x="270" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">routes/patients.py</text>
+</g>
+
+<g class="actor">
+  <rect x="390" y="60" width="160" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#0078D4" stroke-width="1" />
+  <text x="470" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">routes/test_requests.py</text>
+</g>
+
+<g class="actor">
+  <rect x="595" y="60" width="170" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#0078D4" stroke-width="1" />
+  <text x="680" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">hospital.db (SQLite)</text>
+</g>
+
+<g class="actor">
+  <rect x="800" y="60" width="160" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#0078D4" stroke-width="1" />
+  <text x="880" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">lab_api_service.py</text>
+</g>
+
+<g class="actor">
+  <rect x="965" y="60" width="130" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#0078D4" stroke-width="1" />
+  <text x="1030" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">routes/results.py</text>
+</g>
+
+<!-- Laboratory Headers -->
+<g class="actor">
+  <rect x="1120" y="60" width="160" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#107C41" stroke-width="1" />
+  <text x="1200" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">Lab Ingestion API</text>
+</g>
+
+<g class="actor">
+  <rect x="1325" y="60" width="170" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#107C41" stroke-width="1" />
+  <text x="1410" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">validation_service.py</text>
+</g>
+
+<g class="actor">
+  <rect x="1530" y="60" width="180" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#107C41" stroke-width="1" />
+  <text x="1620" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">laboratory.db (SQLite)</text>
+</g>
+
+<g class="actor">
+  <rect x="1755" y="60" width="170" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#107C41" stroke-width="1" />
+  <text x="1840" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">routes/requests.py</text>
+</g>
+
+<g class="actor">
+  <rect x="1960" y="60" width="180" height="40" rx="4" ry="4" fill="var(--_node-fill)" stroke="#107C41" stroke-width="1" />
+  <text x="2050" y="80" font-size="12" text-anchor="middle" font-weight="500" fill="var(--_text)" dy="4.5">processing_service.py</text>
+</g>
+
+<g class="actor">
+  <g transform="translate(2272,62) scale(1.5)">
+    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="none" stroke="#107C41" stroke-width="0.7" />
+    <path d="M15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7C13.6569 7 15 8.34315 15 10Z" fill="none" stroke="#107C41" stroke-width="0.7" />
+    <path d="M5.62842 18.3563C7.08963 17.0398 9.39997 16 12 16C14.6 16 16.9104 17.0398 18.3716 18.3563" fill="none" stroke="#107C41" stroke-width="0.7" />
+  </g>
+  <text x="2290" y="114" font-size="12" text-anchor="middle" font-weight="600" fill="#107C41">Lab Technician</text>
+</g>
+
+<!-- ==================== PHASE 1: PATIENT & ORDER CREATION ==================== -->
+<g class="note">
+  <polygon points="50,140 450,140 456,146 456,163 50,163" fill="var(--bg)" stroke="#0078D4" stroke-width="0.75" />
+  <polygon points="450,140 456,146 450,146" fill="var(--_inner-stroke)" stroke="#0078D4" stroke-width="0.75" />
+  <text x="253" y="151.5" font-size="11" text-anchor="middle" font-weight="500" fill="#0078D4" dy="3.85">PHASE 1: Patient Registration &amp; Order Validation</text>
+</g>
+
+<!-- Step 1: Staff -> Pat -->
+<g class="message">
+  <line x1="90" y1="180" x2="270" y2="180" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="110" y="162" width="140" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="180" y="170" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">1. Register Patient P1023</text>
+  <circle cx="90" cy="180" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="90" y="180" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">1</text>
+</g>
+
+<!-- Step 2: Pat -> DB -->
+<g class="message">
+  <line x1="270" y1="220" x2="680" y2="220" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="400" y="202" width="150" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="475" y="210" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">2. INSERT into patients</text>
+  <circle cx="270" cy="220" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="270" y="220" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">2</text>
+</g>
+
+<!-- Step 3: Staff -> Req -->
+<g class="message">
+  <line x1="90" y1="260" x2="470" y2="260" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="180" y="242" width="200" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="280" y="250" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">3. Submit Test Order (T1001, CBC)</text>
+  <circle cx="90" cy="260" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="90" y="260" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">3</text>
+</g>
+
+<!-- Step 4: Req -> DB -->
+<g class="message">
+  <line x1="470" y1="300" x2="680" y2="300" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="500" y="282" width="150" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="575" y="290" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">4. Check local uniqueness</text>
+  <circle cx="470" cy="300" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="470" y="300" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">4</text>
+</g>
+
+<!-- Step 5: Req -> Lab_API_Svc -->
+<g class="message">
+  <line x1="470" y1="340" x2="880" y2="340" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="590" y="322" width="170" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="675" y="330" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">5. submit_test_request(payload)</text>
+  <circle cx="470" cy="340" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="470" y="340" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">5</text>
+</g>
+
+<!-- ==================== PHASE 2: SYNCHRONOUS REST API TRANSMISSION ==================== -->
+<g class="note">
+  <polygon points="820,365 1250,365 1256,371 1256,388 820,388" fill="var(--bg)" stroke="#E67E22" stroke-width="0.75" />
+  <polygon points="1250,365 1256,371 1250,371" fill="var(--_inner-stroke)" stroke="#E67E22" stroke-width="0.75" />
+  <text x="1038" y="376.5" font-size="11" text-anchor="middle" font-weight="500" fill="#E67E22" dy="3.85">PHASE 2: Direct REST API Transmission &amp; Atomic Acknowledgment</text>
+</g>
+
+<!-- Step 6: Lab_API_Svc -> Lab Ingestion API -->
+<g class="message">
+  <line x1="880" y1="405" x2="1200" y2="405" stroke="#E67E22" stroke-width="1.4" marker-end="url(#arr-api)" />
+  <rect x="940" y="387" width="200" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1040" y="395" font-size="11" text-anchor="middle" font-weight="600" fill="#E67E22" dy="3.85">6. POST /api/requests (X-API-Key)</text>
+  <circle cx="880" cy="405" r="9" fill="#E67E22" stroke="var(--bg)" stroke-width="1" />
+  <text x="880" y="405" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">6</text>
+</g>
+
+<!-- Step 7: Lab API -> Val -->
+<g class="message">
+  <line x1="1200" y1="445" x2="1410" y2="445" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1230" y="427" width="150" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1305" y="435" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">7. validate_request_payload()</text>
+  <circle cx="1200" cy="445" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="1200" y="445" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">7</text>
+</g>
+
+<!-- Step 8: Lab API -> Lab DB -->
+<g class="message">
+  <line x1="1200" y1="485" x2="1620" y2="485" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1340" y="467" width="140" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1410" y="475" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">8. INSERT test_requests</text>
+  <circle cx="1200" cy="485" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="1200" y="485" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">8</text>
+</g>
+
+<!-- Step 9: Lab API -> Lab_API_Svc (HTTP 201) -->
+<g class="message">
+  <line x1="1200" y1="525" x2="880" y2="525" stroke="#E67E22" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr-api)" />
+  <rect x="945" y="507" width="190" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1040" y="515" font-size="11" text-anchor="middle" font-weight="600" fill="#E67E22" dy="3.85">9. HTTP 201 Created { success: true }</text>
+  <circle cx="1200" cy="525" r="9" fill="#E67E22" stroke="var(--bg)" stroke-width="1" />
+  <text x="1200" y="525" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">9</text>
+</g>
+
+<!-- Step 10: Req -> Hosp DB (Commit Sent to Lab) -->
+<g class="message">
+  <line x1="470" y1="565" x2="680" y2="565" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="495" y="547" width="160" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="575" y="555" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">10. INSERT: 'Sent to Laboratory'</text>
+  <circle cx="470" cy="565" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="470" y="565" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">10</text>
+</g>
+
+<!-- Step 11: Hosp -> Clinician Confirmation -->
+<g class="message">
+  <line x1="470" y1="605" x2="90" y2="605" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#arr-hosp)" />
+  <rect x="190" y="587" width="180" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="280" y="595" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">11. Flash Success Confirmation</text>
+  <circle cx="470" cy="605" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="470" y="605" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">11</text>
+</g>
+
+<!-- ==================== PHASE 3: LABORATORY PROCESSING ==================== -->
+<g class="note">
+  <polygon points="1200,630 1600,630 1606,636 1606,653 1200,653" fill="var(--bg)" stroke="#107C41" stroke-width="0.75" />
+  <polygon points="1600,630 1606,636 1600,636" fill="var(--_inner-stroke)" stroke="#107C41" stroke-width="0.75" />
+  <text x="1403" y="641.5" font-size="11" text-anchor="middle" font-weight="500" fill="#107C41" dy="3.85">PHASE 3: Specimen Analysis &amp; Reference Interval Evaluation</text>
+</g>
+
+<!-- Step 12: Lab Tech -> Lab Req Lifecycle -->
+<g class="message">
+  <line x1="2290" y1="670" x2="1840" y2="670" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1980" y="652" width="180" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="2070" y="660" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">12. Validate &amp; Start Processing</text>
+  <circle cx="2290" cy="670" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="2290" y="670" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">12</text>
+</g>
+
+<!-- Step 13: Lab Tech -> Measurement Entry -->
+<g class="message">
+  <line x1="2290" y1="710" x2="2050" y2="710" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="2090" y="692" width="170" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="2175" y="700" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">13. Enter analyzer measurements</text>
+  <circle cx="2290" cy="710" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="2290" y="710" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">13</text>
+</g>
+
+<!-- Step 14: Processing -> Bounds Check -->
+<g class="message">
+  <line x1="2050" y1="750" x2="1620" y2="750" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1750" y="732" width="180" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1840" y="740" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">14. Check Bounds -&gt; INSERT result</text>
+  <circle cx="2050" cy="750" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="2050" y="750" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">14</text>
+</g>
+
+<!-- Step 15: Update Lab status to Completed -->
+<g class="message">
+  <line x1="1620" y1="790" x2="1840" y2="790" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1660" y="772" width="140" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1730" y="780" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">15. UPDATE status: 'Completed'</text>
+  <circle cx="1620" cy="790" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="1620" y="790" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">15</text>
+</g>
+
+<!-- ==================== PHASE 4: RESULT SYNCHRONIZATION OVER REST API ==================== -->
+<g class="note">
+  <polygon points="50,815 480,815 486,821 486,838 50,838" fill="var(--bg)" stroke="#0078D4" stroke-width="0.75" />
+  <polygon points="480,815 486,821 480,821" fill="var(--_inner-stroke)" stroke="#0078D4" stroke-width="0.75" />
+  <text x="268" y="826.5" font-size="11" text-anchor="middle" font-weight="500" fill="#0078D4" dy="3.85">PHASE 4: Clinical Result Ingestion &amp; Diagnostic Review</text>
+</g>
+
+<!-- Step 16: Staff -> ResRoute (Sync Action) -->
+<g class="message">
+  <line x1="90" y1="855" x2="1030" y2="855" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="480" y="837" width="160" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="560" y="845" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">16. Clicks "Sync Laboratory Results"</text>
+  <circle cx="90" cy="855" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="90" y="855" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">16</text>
+</g>
+
+<!-- Step 17: ResRoute -> Lab_API_Svc -->
+<g class="message">
+  <line x1="1030" y1="895" x2="880" y2="895" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="910" y="877" width="100" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="960" y="885" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">17. fetch_result(T1001)</text>
+  <circle cx="1030" cy="895" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="1030" y="895" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">17</text>
+</g>
+
+<!-- Step 18: Lab_API_Svc -> Lab Ingestion API -->
+<g class="message">
+  <line x1="880" y1="935" x2="1200" y2="935" stroke="#E67E22" stroke-width="1.4" marker-end="url(#arr-api)" />
+  <rect x="940" y="917" width="200" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1040" y="925" font-size="11" text-anchor="middle" font-weight="600" fill="#E67E22" dy="3.85">18. GET /api/results/T1001 (X-API-Key)</text>
+  <circle cx="880" cy="935" r="9" fill="#E67E22" stroke="var(--bg)" stroke-width="1" />
+  <text x="880" y="935" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">18</text>
+</g>
+
+<!-- Step 19: Lab API -> Lab DB Query -->
+<g class="message">
+  <line x1="1200" y1="975" x2="1620" y2="975" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-lab)" />
+  <rect x="1340" y="957" width="140" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1410" y="965" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">19. Query ResultModel</text>
+  <circle cx="1200" cy="975" r="9" fill="#107C41" stroke="var(--bg)" stroke-width="1" />
+  <text x="1200" y="975" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">19</text>
+</g>
+
+<!-- Step 20: Lab API -> Lab_API_Svc (HTTP 200 JSON Payload) -->
+<g class="message">
+  <line x1="1200" y1="1015" x2="880" y2="1015" stroke="#E67E22" stroke-width="1.4" stroke-dasharray="6 4" marker-end="url(#arr-api)" />
+  <rect x="925" y="997" width="230" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="1040" y="1005" font-size="11" text-anchor="middle" font-weight="600" fill="#E67E22" dy="3.85">20. HTTP 200 OK { measurements, status }</text>
+  <circle cx="1200" cy="1015" r="9" fill="#E67E22" stroke="var(--bg)" stroke-width="1" />
+  <text x="1200" y="1015" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">20</text>
+</g>
+
+<!-- Step 21: Lab_API_Svc -> Hosp DB (Persist Result) -->
+<g class="message">
+  <line x1="880" y1="1055" x2="680" y2="1055" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="710" y="1037" width="140" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="780" y="1045" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">21. INSERT into test_results</text>
+  <circle cx="880" cy="1055" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="880" y="1055" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">21</text>
+</g>
+
+<!-- Step 22: Update Request Status in Hosp DB -->
+<g class="message">
+  <line x1="880" y1="1095" x2="680" y2="1095" stroke="var(--_line)" stroke-width="1" marker-end="url(#arr-hosp)" />
+  <rect x="700" y="1077" width="160" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="780" y="1085" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">22. UPDATE: Completed / Abnormal</text>
+  <circle cx="880" cy="1095" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="880" y="1095" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">22</text>
+</g>
+
+<!-- Step 23: Display to Clinician -->
+<g class="message">
+  <line x1="1030" y1="1135" x2="90" y2="1135" stroke="var(--_line)" stroke-width="1" stroke-dasharray="6 4" marker-end="url(#arr-hosp)" />
+  <rect x="470" y="1117" width="180" height="16.3" rx="2" ry="2" fill="var(--bg)" />
+  <text x="560" y="1125" font-size="11" text-anchor="middle" font-weight="400" fill="var(--_text-muted)" dy="3.85">23. Render Result Details &amp; Badges</text>
+  <circle cx="1030" cy="1135" r="9" fill="#0078D4" stroke="var(--bg)" stroke-width="1" />
+  <text x="1030" y="1135" font-size="10" text-anchor="middle" font-weight="600" fill="var(--bg)" dy="3.5">23</text>
+</g>
+
+<!-- SUMMARY FOOTER -->
+<rect x="40" y="1190" width="1040" height="85" rx="6" ry="6" fill="#1B2533" stroke="#0078D4" stroke-width="1" />
+<text x="60" y="1215" font-size="12" font-weight="700" fill="#0078D4">HOSPITAL DOMAIN RESPONSIBILITIES:</text>
+<text x="60" y="1235" font-size="11" fill="#CCCCCC">• Patient demographics &amp; medical encounters</text>
+<text x="60" y="1255" font-size="11" fill="#CCCCCC">• Orders diagnostic test &amp; dispatches via POST /api/requests</text>
+<text x="550" y="1235" font-size="11" fill="#CCCCCC">• Independent SQLite database (hospital.db)</text>
+<text x="550" y="1255" font-size="11" fill="#CCCCCC">• Retrieves completed result over authenticated REST API</text>
+
+<rect x="1130" y="1190" width="1230" height="85" rx="6" ry="6" fill="#1B2F23" stroke="#107C41" stroke-width="1" />
+<text x="1150" y="1215" font-size="12" font-weight="700" fill="#107C41">DIAGNOSTIC LABORATORY RESPONSIBILITIES:</text>
+<text x="1150" y="1235" font-size="11" fill="#CCCCCC">• Authenticates callers via X-API-Key token</text>
+<text x="1150" y="1255" font-size="11" fill="#CCCCCC">• Ingests test requisitions atomically into laboratory.db</text>
+<text x="1750" y="1235" font-size="11" fill="#CCCCCC">• Analyzes quantitative physiological measurements</text>
+<text x="1750" y="1255" font-size="11" fill="#CCCCCC">• Automated Reference Interval Evaluation (Normal vs Abnormal)</text>
+
+</svg>
